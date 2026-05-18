@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alexis Bojorquez — UX/UI Designer & Visual Designer based in Phoenix, AZ. Selected works and case studies.">
+    <title>Alexis Bojorquez — UX/UI & Visual Designer</title>
+
+    <!-- Open Graph (optional but recommended for social previews) -->
+    <meta property="og:title" content="Alexis Bojorquez — UX/UI & Visual Designer">
+    <meta property="og:description" content="Selected works and case studies in UX/UI and visual design.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (drop a favicon.ico in /assets and uncomment) -->
+    <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico"> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =============================================================
+     NAVIGATION
+     ============================================================= -->
+<header class="nav" id="nav">
+    <div class="nav__inner">
+        <button class="nav__logo" data-nav="home" aria-label="Home">
+            Alexis Bojorquez<span class="nav__logo-dot"></span>
+        </button>
+        <nav class="nav__links" aria-label="Primary">
+            <button data-nav="home" data-anchor="work">Work</button>
+            <button data-nav="home" data-anchor="about">About</button>
+            <button data-nav="home" data-anchor="contact">Contact</button>
+        </nav>
+    </div>
+</header>
+
+<!-- =============================================================
+     HOME PAGE
+     ============================================================= -->
+<div class="page is-active" data-page="home">
+
+    <!-- HERO — Hayden-style: avatar, conversational greeting with rotating word -->
+    <section class="hero">
+        <div class="container">
+
+            <div class="hero__avatar-row">
+                <div class="hero__avatar" aria-hidden="true">AB</div>
+                <div class="hero__avatar-name">
+                    <strong>Alexis Bojorquez</strong>
+                    <span>UX/UI &amp; Visual Designer · Phoenix, AZ</span>
+                </div>
+            </div>
+
+            <h1 class="hero__greeting">
+                Hi, I'm Alexis. I design
+                <span class="hero__rotator" aria-live="polite">
+                    <span class="hero__rotator-text" id="rotator">interfaces</span><span class="hero__cursor" aria-hidden="true"></span>
+                </span>
+            </h1>
+
+            <p class="hero__lede">
+                I obsess over the small moments most people skip — the empty states, the loading flickers, the way a button feels under your thumb.
+            </p>
+
+            <p class="hero__body">
+                Every spacing decision, every microcopy line, every transition is a chance to either build trust or quietly burn it. I design considered digital products for teams who want their work to feel as good as it looks — across UX flows, visual systems, and the stuff that lives in between.
+            </p>
+
+            <div class="hero__ctas">
+                <button class="btn btn--primary" data-anchor="work">
+                    Explore my work
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <a href="mailto:hello@alexisbojorquez.com" class="btn btn--ghost">
+                    Let's talk
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURED WORK — Tony Jin list mode + Hayden card mode with toggle -->
+    <section class="work" id="work">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-head__title">Featured work</h2>
+                <div class="view-toggle" role="tablist" aria-label="Switch view">
+                    <button class="view-toggle__btn" data-view="list" role="tab" aria-selected="false">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <path d="M1 2.5h10M1 6h10M1 9.5h10" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                        </svg>
+                        List
+                    </button>
+                    <button class="view-toggle__btn is-active" data-view="card" role="tab" aria-selected="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <rect x="1" y="1" width="4" height="4" stroke="currentColor" stroke-width="1.25"/>
+                            <rect x="7" y="1" width="4" height="4" stroke="currentColor" stroke-width="1.25"/>
+                            <rect x="1" y="7" width="4" height="4" stroke="currentColor" stroke-width="1.25"/>
+                            <rect x="7" y="7" width="4" height="4" stroke="currentColor" stroke-width="1.25"/>
+                        </svg>
+                        Cards
+                    </button>
+                </div>
+            </div>
+
+            <h3 class="work__subhead">Featured</h3>
+
+            <div class="cards" data-view="card" id="cards-featured">
+
+                <!-- EATXPLORE -->
+                <button class="card" data-nav="project" data-project="eatxplore" data-preview="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80">
+                    <div class="card__media">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=80" alt="Eatxplore food discovery app" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">Eatxplore</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">UX/UI Design</span>
+                                <span class="card__tag">Motion</span>
+                                <span class="card__tag">Mobile</span>
+                            </div>
+                            <p class="card__desc">Redesigning a food discovery app around mood, curation, and the way people actually decide where to eat.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2025</span><span aria-hidden="true">·</span><strong>Eatxplore Inc.</strong>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- NORDEN -->
+                <button class="card" data-nav="project" data-project="norden" data-preview="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80">
+                    <div class="card__media">
+                        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=1000&q=80" alt="Norden banking app interface" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">Norden Banking</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">Visual Design</span>
+                                <span class="card__tag">Design System</span>
+                                <span class="card__tag">iOS &amp; Android</span>
+                            </div>
+                            <p class="card__desc">Reimagining a Nordic challenger bank's app around clarity, calm, and quiet confidence in your own money.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2024</span><span aria-hidden="true">·</span><strong>Norden Bank</strong>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- MIRROR MIRROR -->
+                <button class="card" data-nav="project" data-project="mirror" data-preview="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80">
+                    <div class="card__media">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=80" alt="Mirror Mirror — personal finance app" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">Mirror Mirror</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">UX Design</span>
+                                <span class="card__tag">UX Research</span>
+                                <span class="card__tag">AI</span>
+                            </div>
+                            <p class="card__desc">Using AI to cultivate mindfulness in personal finance — a calmer way to look at your money without judgement.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2024</span><span aria-hidden="true">·</span><strong>Concept</strong>
+                        </div>
+                    </div>
+                </button>
+
+            </div>
+
+            <h3 class="work__subhead">Additional work</h3>
+
+            <div class="cards" data-view="card" id="cards-additional">
+
+                <!-- COOK FRESH -->
+                <button class="card" data-nav="project" data-project="cookfresh" data-preview="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=800&q=80">
+                    <div class="card__media">
+                        <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1000&q=80" alt="Cook Fresh voice cooking assistant" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">Cook Fresh</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">VUI</span>
+                                <span class="card__tag">Smart Home</span>
+                            </div>
+                            <p class="card__desc">A smart cooking assistant that reduces food waste by suggesting recipes from what's already in your kitchen.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2023</span><span aria-hidden="true">·</span><strong>Whirlpool Lab</strong>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- REI BACKPACK -->
+                <button class="card" data-nav="project" data-project="rei" data-preview="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=800&q=80">
+                    <div class="card__media">
+                        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1000&q=80" alt="REI Backpack Finder concept" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">REI Backpack Finder</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">UX Research</span>
+                                <span class="card__tag">E-commerce</span>
+                            </div>
+                            <p class="card__desc">Helping novice backpackers find the right pack without the analysis paralysis of 200+ technical SKUs.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2023</span><span aria-hidden="true">·</span><strong>REI Co-op</strong>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- UP & UP -->
+                <button class="card" data-nav="project" data-project="upup" data-preview="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80">
+                    <div class="card__media">
+                        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80" alt="Up &amp; Up collective breathing app" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">Up &amp; Up</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">UX Design</span>
+                                <span class="card__tag">Motion</span>
+                            </div>
+                            <p class="card__desc">A collective breathing game for stress relief — slowing down a roomful of strangers, one inhale at a time.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2022</span><span aria-hidden="true">·</span><strong>Side project</strong>
+                        </div>
+                    </div>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="about__heading">
+                A designer focused on the <em>quiet</em> details that make digital products feel inevitable.
+            </h2>
+            <a href="mailto:hello@alexisbojorquez.com" class="btn btn--ghost">
+                Start a conversation
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+
+            <div class="contact__intro">
+                <h2 class="contact__heading" id="contact-heading">
+                    Let's make <em>something</em> together.
+                </h2>
+                <p class="contact__copy">
+                    Whether it's a full product redesign, a brand refresh, or a quick consult — drop me a note below or grab my resume to get started.
+                </p>
+            </div>
+
+            <div class="contact__layout">
+
+                <!-- FORM -->
+                <form class="contact-form" id="contact-form" novalidate>
+                    <div class="contact-form__field">
+                        <label class="contact-form__label" for="cf-first">First name</label>
+                        <input class="contact-form__input" type="text" id="cf-first" name="first_name" autocomplete="given-name" required>
+                    </div>
+                    <div class="contact-form__field">
+                        <label class="contact-form__label" for="cf-last">Last name</label>
+                        <input class="contact-form__input" type="text" id="cf-last" name="last_name" autocomplete="family-name" required>
+                    </div>
+                    <div class="contact-form__field contact-form__field--full">
+                        <label class="contact-form__label" for="cf-email">Email</label>
+                        <input class="contact-form__input" type="email" id="cf-email" name="email" autocomplete="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="contact-form__field contact-form__field--full">
+                        <label class="contact-form__label" for="cf-linkedin">LinkedIn (optional)</label>
+                        <input class="contact-form__input" type="url" id="cf-linkedin" name="linkedin" placeholder="https://linkedin.com/in/your-handle">
+                    </div>
+                    <div class="contact-form__field contact-form__field--full">
+                        <label class="contact-form__label" for="cf-message">Message</label>
+                        <textarea class="contact-form__input" id="cf-message" name="message" rows="4" placeholder="Tell me a little about your project…" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary contact-form__submit">
+                        Send message
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+
+                    <p class="contact-form__message" id="contact-form-message" role="status" aria-live="polite">
+                        Thanks — your message is on its way. I'll get back to you within 1–2 days.
+                    </p>
+                </form>
+
+                <!-- ASIDE — links + resume -->
+                <aside class="contact-aside">
+                    <h3 class="contact-aside__title">Or reach me directly</h3>
+
+                    <a href="mailto:hello@alexisbojorquez.com" class="contact-link">
+                        <span class="contact-link__label">
+                            hello@alexisbojorquez.com
+                            <small>Email</small>
+                        </span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/alexisbojorquez" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-link__label">
+                            linkedin.com/in/alexisbojorquez
+                            <small>LinkedIn</small>
+                        </span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+
+                    <a href="/resume.pdf" download="Alexis-Bojorquez-Resume.pdf" class="contact-resume">
+                        Download Resume
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M7 1V11M7 11L2 6M7 11L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- =============================================================
+     CASE STUDY
+     ============================================================= -->
+<div class="page" data-page="project">
+    <main class="case">
+
+        <section class="case__header">
+            <div class="container">
+                <button class="case__back" data-nav="home">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                    </svg>
+                    Back to work
+                </button>
+                <p class="case__eyebrow" data-field="eyebrow">Case Study — 2025</p>
+                <h1 class="case__title" data-field="title">Eatxplore</h1>
+                <p class="case__deck" data-field="deck">Redesigning a food discovery app to help curious eaters find local restaurants they'll actually love — not the same five places everyone already knows.</p>
+            </div>
+        </section>
+
+        <section class="case__banner">
+            <img data-field="banner" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=2000&q=85" alt="Project banner" loading="eager">
+        </section>
+
+        <section class="case__overview">
+            <div class="container">
+                <dl class="overview-grid">
+                    <div class="overview-grid__item"><dt>Role</dt><dd data-field="role">Lead UX/UI Designer</dd></div>
+                    <div class="overview-grid__item"><dt>Timeline</dt><dd data-field="timeline">14 weeks · Apr–Jul 2025</dd></div>
+                    <div class="overview-grid__item"><dt>Tools</dt><dd data-field="tools">Figma, FigJam, Maze, Notion</dd></div>
+                    <div class="overview-grid__item"><dt>Client</dt><dd data-field="client">Eatxplore Inc.</dd></div>
+                    <div class="overview-grid__item"><dt>Team</dt><dd data-field="team">1 PM, 2 Engineers, 1 Designer</dd></div>
+                    <div class="overview-grid__item"><dt>Platform</dt><dd data-field="platform">iOS &amp; Android</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="case__section">
+            <div class="container">
+                <div class="case-row">
+                    <div class="case-row__label">
+                        <span class="section-index">01</span>
+                        <h2 class="section-label">The Problem</h2>
+                    </div>
+                    <div class="case-row__body" data-field="problem">
+                        <p class="case-lede">Eatxplore's existing app treated every restaurant the same — a flat, alphabetized list with no sense of personality or place.</p>
+                        <p>Despite a growing database of over 12,000 restaurants across three cities, retention dropped sharply after the first session. Internal data showed a <strong>62% drop-off</strong> between install and second visit. The brief was clear: rebuild discovery around <em>trust</em>, <em>context</em>, and <em>delight</em>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case__section case__section--alt">
+            <div class="container">
+                <div class="case-row">
+                    <div class="case-row__label">
+                        <span class="section-index">02</span>
+                        <h2 class="section-label">Research &amp; Insights</h2>
+                    </div>
+                    <div class="case-row__body">
+                        <p class="case-lede">14 in-depth interviews and a diary study with 22 participants over two weeks.</p>
+                        <ol class="insights">
+                            <li>
+                                <span class="insights__num">i.</span>
+                                <div>
+                                    <h3>People don't search for food — they search for moods.</h3>
+                                    <p>"Cozy date night," "quick lunch near work" surfaced repeatedly. Cuisine type came up surprisingly rarely.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="insights__num">ii.</span>
+                                <div>
+                                    <h3>Reviews feel like noise. Curation feels like a gift.</h3>
+                                    <p>Lists made by a real person with taste consistently beat aggregated star ratings.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="insights__num">iii.</span>
+                                <div>
+                                    <h3>The map is the menu.</h3>
+                                    <p>"Is this on my walk home?" matters more than "Is this rated 4.6 or 4.7?"</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case__section">
+            <div class="container">
+                <div class="case-row">
+                    <div class="case-row__label">
+                        <span class="section-index">03</span>
+                        <h2 class="section-label">The Solution</h2>
+                    </div>
+                    <div class="case-row__body">
+                        <p class="case-lede">A mood-first discovery model, anchored by human-curated lists and a map that responds to context.</p>
+                    </div>
+                </div>
+                <figure class="solution-image">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=2000&q=85" alt="Final solution mockups" loading="lazy">
+                </figure>
+                <div class="features">
+                    <div class="features__item">
+                        <h3>Mood-based browse</h3>
+                        <p>Users land on a feed of "moments" — date night, working lunch — instead of cuisines.</p>
+                    </div>
+                    <div class="features__item">
+                        <h3>Editor lists</h3>
+                        <p>Every list is authored by a real local with a face and a voice. No anonymous aggregations.</p>
+                    </div>
+                    <div class="features__item">
+                        <h3>Contextual map</h3>
+                        <p>The map reshapes around your route, your time of day, and your saved places.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case__section case__section--alt">
+            <div class="container">
+                <div class="case-row">
+                    <div class="case-row__label">
+                        <span class="section-index">04</span>
+                        <h2 class="section-label">Results</h2>
+                    </div>
+                    <div class="case-row__body">
+                        <p class="case-lede">Three months after launch, the redesign moved every metric we cared about.</p>
+                    </div>
+                </div>
+                <div class="results">
+                    <div class="results__item"><span class="results__num">+ 84%</span><p>Increase in 7-day retention</p></div>
+                    <div class="results__item"><span class="results__num">3.2×</span><p>Growth in saved places per session</p></div>
+                    <div class="results__item"><span class="results__num">4.8</span><p>App Store rating (up from 3.1)</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case__next">
+            <div class="container">
+                <button class="next-link" data-nav="project" data-project="norden" id="next-project-btn">
+                    <span class="next-link__label">Next Project</span>
+                    <span class="next-link__title" id="next-project-title">Norden Banking</span>
+                    <span class="next-link__arrow" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 16L16 4M16 4H7M16 4V13" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- =============================================================
+     FOOTER
+     ============================================================= -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <span>© 2026 Alexis Bojorquez</span>
+            <div class="footer__links">
+                <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="#" target="_blank" rel="noopener">Dribbble</a>
+                <a href="mailto:hello@alexisbojorquez.com">Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- JS -->
+<script src="main.js"></script>
+
+</body>
+</html>
