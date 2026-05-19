@@ -29,16 +29,16 @@
        ============================================================= */
     const projects = {
         eatxplore: {
-            eyebrow: 'Case Study — 2025',
-            title: 'Eatxplore',
-            deck: "Redesigning a food discovery app to help curious eaters find local restaurants they'll actually love — not the same five places everyone already knows.",
-            banner: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=2000&q=85',
-            role: 'Lead UX/UI Designer',
-            timeline: '14 weeks · Apr–Jul 2025',
-            tools: 'Figma, FigJam, Maze, Notion',
-            client: 'Eatxplore Inc.',
-            team: '1 PM, 2 Engineers, 1 Designer',
-            platform: 'iOS &amp; Android',
+            eyebrow: 'UX/UI Design — 2023',
+            title: 'ASU Events Page',
+            deck: 'A full redesign of Arizona State University\'s live events platform — modernizing the interface, implementing a scalable design system, and rethinking how 5,000+ annual events are discovered and organized. <a class="case__link" href="https://asuevents.asu.edu/" target="_blank" rel="noopener">View live site →</a>',
+            banner: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=85',
+            role: 'Senior UX/UI Designer',
+            timeline: '12 weeks · Oct–Dec 2023',
+            tools: 'Adobe XD',
+            client: 'Arizona State University',
+            team: '1 PM, 3 Engineers, 1 Director, 1 Designer',
+            platform: 'Website',
             next: 'norden',
             nextTitle: 'Norden Banking'
         },

@@ -981,6 +981,8 @@ a:focus-visible, button:focus-visible {
     letter-spacing: -0.04em;
     margin: 0 0 var(--s-4);
 }
+.case__link { text-decoration: underline; opacity: 0.6; transition: opacity var(--dur-fast) var(--ease); white-space: nowrap; }
+.case__link:hover { opacity: 1; }
 .case__deck {
     font-size: clamp(18px, 2vw, 26px);
     font-weight: 300;
