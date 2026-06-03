@@ -200,18 +200,86 @@
 <div class="results__item"><span class="results__num">34%</span><p>Preferred show/hide labeling over all three alternative copy approaches tested</p></div>`
         },
         cookfresh: {
-            eyebrow: 'Case Study — 2023',
-            title: 'Cook Fresh',
-            deck: 'A smart cooking assistant that reduces food waste by suggesting recipes from what is already in your kitchen.',
+            eyebrow: 'UI Design — 2026',
+            title: 'Config HQ — IVR Instances',
+            deck: 'A UI design initiative to improve IVR+ configuration management within ConfigHQ — centralizing workspace-level settings, establishing proper placement for transfer configurations, and introducing instance-level maintenance controls for better operational oversight.',
             banner: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=2000&q=85',
-            role: 'VUI Designer',
-            timeline: '12 weeks · 2023',
-            tools: 'Figma, Voiceflow',
-            client: 'Whirlpool Lab',
-            team: '1 PM, 3 Engineers, 1 Designer',
-            platform: 'Voice + Display',
+            role: 'UI Designer',
+            timeline: '2026',
+            tools: 'Figma',
+            client: 'KUBRA',
+            team: 'UI Designer, UX Researcher, PM, Developer',
+            platform: 'Desktop Web Software',
             next: 'rei',
-            nextTitle: 'REI Backpack Finder'
+            nextTitle: 'REI Backpack Finder',
+            problem: `<p class="case-lede">IVR+ configuration within ConfigHQ had grown fragmented — settings, transfer rules, and instance controls were scattered across the system with no clear ownership or hierarchy.</p>
+<p>Four specific gaps were driving the problem:</p>
+<ol class="insights" style="list-style:none;padding:0;margin:var(--s-4) 0 0;display:flex;flex-direction:column;gap:var(--s-3);">
+    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
+        <span class="insights__num">1.</span>
+        <div><strong>General settings</strong> — language defaults and messaging were managed at the instance level, forcing repetitive configuration across every IVR instance instead of once at the workspace.</div>
+    </li>
+    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
+        <span class="insights__num">2.</span>
+        <div><strong>Transfer configurations</strong> — transfer-in and transfer-out rules had no defined home, creating inconsistency in how call routing was set up and audited.</div>
+    </li>
+    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
+        <span class="insights__num">3.</span>
+        <div><strong>Maintenance mode</strong> — no instance-level control existed for planned downtime, leaving no way to gracefully disable authentication and payment flows when an IVR went offline.</div>
+    </li>
+    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
+        <span class="insights__num">4.</span>
+        <div><strong>Phone number provisioning</strong> — there was no dedicated section for managing phone numbers or IVR availability, making operational control inconsistent and difficult to audit.</div>
+    </li>
+</ol>`,
+            research: `<p class="case-lede">Rather than traditional usability testing, this project was driven by configuration analysis — mapping where settings lived, where they belonged, and what was missing entirely. Four key areas were defined.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Workspace-level general settings</h3>
+            <p>Established a default language selector (English, Spanish, French) with support for localized welcome and goodbye messages. The client contact number was moved from instance-level transfer-out configuration up to the workspace, centralizing elements shared across all instances and reducing per-instance setup overhead.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Transfer-in configuration</h3>
+            <p>Designed to accept multiple call center phone numbers used for IVR call recognition — allowing the system to correctly identify calls transferred from client call centers and preventing phone numbers from being incorrectly associated with accounts.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>Placement decision: workspace vs. instance</h3>
+            <p>A key design question was whether transfer configurations belonged at the workspace or instance level. The deciding factors: workspace snapshots support portable configurations while instance settings are non-portable. Transfer-in and transfer-out configurations were placed at the workspace level to support portability and consistent auditing.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iv.</span>
+        <div>
+            <h3>Instance-level maintenance mode</h3>
+            <p>Introduced a maintenance mode toggle at the instance level. When enabled, it disables authentication and payment flows while the IVR is offline and surfaces a biller-specific maintenance message — giving operations teams a controlled, user-facing way to handle planned downtime.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A restructured configuration architecture across three surfaces — workspace settings, transfer configuration, and instance controls — giving administrators a logical, auditable system for managing IVR environments.</p>`,
+            features: `<div class="features__item">
+    <h3>Workspace general settings</h3>
+    <p>Centralized language defaults, localized messaging, and the client contact number at the workspace level — eliminating repeated configuration across instances and establishing a single source of truth for shared settings.</p>
+</div>
+<div class="features__item">
+    <h3>Transfer configuration panel</h3>
+    <p>Designed a dedicated workspace-level panel for transfer-in and transfer-out rules, supporting multiple call center numbers with clear labeling to prevent misassociation and improve routing auditability.</p>
+</div>
+<div class="features__item">
+    <h3>Instance maintenance mode</h3>
+    <p>Added a maintenance toggle at the instance level that gracefully disables payment and authentication flows, surfaces a configurable biller message, and gives operations teams deliberate control over IVR availability.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">The redesigned configuration structure resolved longstanding operational pain points and established a foundation for scalable IVR management within ConfigHQ.</p>`,
+            results: `<div class="results__item"><span class="results__num">4</span><p>Configuration domains restructured with clear workspace vs. instance ownership</p></div>
+<div class="results__item"><span class="results__num">3</span><p>Languages supported with centralized localization at the workspace level</p></div>
+<div class="results__item"><span class="results__num">1</span><p>Unified maintenance mode giving operations full control over instance availability</p></div>`
         },
         rei: {
             eyebrow: 'Case Study — 2023',
