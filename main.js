@@ -40,21 +40,107 @@
             team: '1 PM, 3 Engineers, 1 Director, 1 Designer',
             platform: 'Website',
             next: 'norden',
-            nextTitle: 'Norden Banking'
+            nextTitle: 'ASU Rankings Page',
+            problem: `<p class="case-lede">ASU's events platform was managing over 5,000 annual events through an interface that had fallen behind both its users and its own design system.</p>
+<p>The site struggled on every front: the UI had drifted from the university's updated design standards, event browsing was cluttered and disorganized, and the filter system contained persistent bugs that broke event tagging and discovery. For a platform at the scale of Arizona State University, this friction wasn't just inconvenient — it was actively suppressing event discovery, new submissions, and meaningful campus engagement.</p>`,
+            research: `<p class="case-lede">User interviews and behavioral analysis revealed three critical breakdowns driving poor engagement across the platform.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Users couldn't navigate the platform — or add events to it.</h3>
+            <p>A significant portion of students and staff didn't know how to use the site, submit new events, or organize them effectively. The interface offered no clear wayfinding or guidance.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Search was unreliable and eroded user trust.</h3>
+            <p>Users frequently abandoned searches mid-flow. Inconsistent results made endless scrolling feel more dependable than querying directly.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>Broken filters were hiding the events people needed.</h3>
+            <p>The existing filter components had bugs that prevented proper event tagging — relevant events simply didn't surface, and users had no way of knowing what they were missing.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A structured design process — from user journey mapping to component-level execution — delivered in close collaboration with the engineering team.</p>`,
+            features: `<div class="features__item">
+    <h3>User journey mapping</h3>
+    <p>Mapped the complete user flow from landing to event registration, identifying every friction point and opportunity for a clearer, more intuitive experience.</p>
+</div>
+<div class="features__item">
+    <h3>Card &amp; list view system</h3>
+    <p>Designed a flexible card component for event browsing with a toggle between card and list views — giving users full control over how they scan and discover events.</p>
+</div>
+<div class="features__item">
+    <h3>Design system alignment</h3>
+    <p>Every component was built to spec within ASU's updated design system, ensuring consistency across the platform and a clean handoff to engineering for implementation.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">The redesign launched at the end of 2023 to an overwhelmingly positive reception across the ASU community.</p>`,
+            results: `<div class="results__item"><span class="results__num">88%</span><p>User approval of the redesigned experience</p></div>
+<div class="results__item"><span class="results__num">5×</span><p>Reduction in event overlap and interface clutter</p></div>
+<div class="results__item"><span class="results__num">3×</span><p>Increase in platform traffic post-launch</p></div>`
         },
         norden: {
-            eyebrow: 'Case Study — 2024',
-            title: 'Norden Banking',
-            deck: "Reimagining a Nordic challenger bank's mobile app around clarity, calm, and quiet confidence — for people who'd rather not think about money more than they have to.",
+            eyebrow: 'UX/UI Design — 2023',
+            title: 'ASU Rankings Page',
+            deck: 'A complete redesign of Arizona State University\'s rankings page — rebuilding its card components from the ground up to authentically celebrate over a decade of breakthrough achievements, including ASU\'s sustained #1 ranking in innovation.',
             banner: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=2000&q=85',
-            role: 'Lead Visual Designer',
-            timeline: '20 weeks · Aug–Dec 2024',
-            tools: 'Figma, Principle, Origami',
-            client: 'Norden Bank',
-            team: '2 PMs, 4 Engineers, 2 Designers',
-            platform: 'iOS &amp; Android',
+            role: 'Senior UX/UI Designer',
+            timeline: '4 weeks · 2023',
+            tools: 'Adobe XD',
+            client: 'Arizona State University',
+            team: 'Solo project',
+            platform: 'Website &amp; Mobile',
             next: 'mirror',
-            nextTitle: 'Mirror Mirror'
+            nextTitle: 'Mirror Mirror',
+            problem: `<p class="case-lede">ASU's rankings page relied on aging card components that had become a source of friction rather than institutional pride.</p>
+<p>Cards depended on complex hover animations to reveal key information — a pattern that broke entirely on touch devices and caused desktop users to lose context whenever the cursor drifted. Each card held minimal content, leaving major achievements undersold. With 20+ cards crowding a single page and no visual hierarchy to guide the eye, users struggled to identify landmarks like ASU's decade-long <strong>#1 Innovation ranking</strong> among the noise. The component had also accumulated inconsistencies that made it difficult to scale or maintain.</p>`,
+            research: `<p class="case-lede">Usability testing and interviews with students, faculty, and prospective families surfaced three consistent pain points with the existing card interface.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Hover-dependent cards created friction on every device.</h3>
+            <p>Users frequently lost information when accidentally mousing off a card. On touch devices, the hover-only interaction left mobile visitors completely locked out of the card content.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Information density overwhelmed without visual hierarchy.</h3>
+            <p>With 20+ uniformly styled cards on one page, users couldn't distinguish landmark achievements from minor recognitions. ASU's ten-year #1 Innovation streak registered with no more prominence than a single-year regional award.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>The design failed to reflect institutional prestige.</h3>
+            <p>Users described the page as cluttered and outdated. The repetitive visual treatment made every row look identical, undermining the significance of the achievements being highlighted.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A click-first interaction model paired with an alternating brand color palette and tighter content hierarchy — designed around how users actually want to explore achievements.</p>`,
+            features: `<div class="features__item">
+    <h3>Click-to-expand interaction</h3>
+    <p>Replaced brittle hover states with a deliberate click/tap action, giving users full control over when information appears and making every card fully accessible on touch devices.</p>
+</div>
+<div class="features__item">
+    <h3>Alternating brand color palette</h3>
+    <p>Cards cycle through ASU's primary brand colors, ensuring no two rows look identical across 20+ achievements while reinforcing institutional identity throughout the scroll.</p>
+</div>
+<div class="features__item">
+    <h3>Focused content per card</h3>
+    <p>Each card was edited down to its single most compelling data point, reducing cognitive load and letting individual achievements land with the weight they actually deserve.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">Post-launch usability testing showed measurable improvement across every metric the team tracked.</p>`,
+            results: `<div class="results__item"><span class="results__num">45%</span><p>Faster task completion when locating a specific ranking</p></div>
+<div class="results__item"><span class="results__num">63%</span><p>Of testers rated the updated navigation as significantly easier to use</p></div>
+<div class="results__item"><span class="results__num">20+</span><p>Achievement cards displayed with no two rows appearing visually identical</p></div>`
         },
         mirror: {
             eyebrow: 'Concept — 2024',
