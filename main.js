@@ -97,7 +97,7 @@
             team: 'Solo project',
             platform: 'Website &amp; Mobile',
             next: 'mirror',
-            nextTitle: 'Mirror Mirror',
+            nextTitle: 'KHQ Side Panel Update',
             problem: `<p class="case-lede">ASU's rankings page relied on aging card components that had become a source of friction rather than institutional pride.</p>
 <p>Cards depended on complex hover animations to reveal key information — a pattern that broke entirely on touch devices and caused desktop users to lose context whenever the cursor drifted. Each card held minimal content, leaving major achievements undersold. With 20+ cards crowding a single page and no visual hierarchy to guide the eye, users struggled to identify landmarks like ASU's decade-long <strong>#1 Innovation ranking</strong> among the noise. The component had also accumulated inconsistencies that made it difficult to scale or maintain.</p>`,
             research: `<p class="case-lede">Usability testing and interviews with students, faculty, and prospective families surfaced three consistent pain points with the existing card interface.</p>
@@ -143,18 +143,61 @@
 <div class="results__item"><span class="results__num">20+</span><p>Achievement cards displayed with no two rows appearing visually identical</p></div>`
         },
         mirror: {
-            eyebrow: 'Concept — 2024',
-            title: 'Mirror Mirror',
-            deck: 'Using AI to cultivate mindfulness in personal finance — a calmer way to look at your money without the judgement of a budgeting app.',
+            eyebrow: 'UX/UI Design — 2026',
+            title: 'KHQ Side Panel Update',
+            deck: 'Applying modern design standards to KUBRA\'s KHQ side panel through structured research and usability testing — replacing a non-standard toggle pattern with a validated, accessible approach that works equally well for users, designers, and engineers.',
             banner: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2000&q=85',
-            role: 'UX Designer &amp; Researcher',
-            timeline: '10 weeks · 2024',
-            tools: 'Figma, Miro, OpenAI',
-            client: 'Self-initiated',
-            team: 'Solo project',
-            platform: 'Mobile concept',
+            role: 'UI / Visual Designer',
+            timeline: '6 weeks · 2026',
+            tools: 'Figma',
+            client: 'KUBRA',
+            team: 'Visual Designer, UX Researcher, Director, PM, Developer',
+            platform: 'Desktop Web Software',
             next: 'cookfresh',
-            nextTitle: 'Cook Fresh'
+            nextTitle: 'Cook Fresh',
+            problem: `<p class="case-lede">KHQ's side panel used a non-standard toggle button positioned between the panel's inner and outer boundaries — an unusual pattern that created compounding problems across design, development, and usability.</p>
+<p>For users, the button's placement was unintuitive and inconsistent with established UI conventions, making the panel difficult to discover and interact with confidently. For engineering, the in-between positioning required complex logic to maintain correct toggle behavior as the panel changed state — a persistent maintenance burden. For the design system, the atypical placement made it nearly impossible to define repeatable patterns around the component, blocking meaningful system-level work downstream. All three problems pointed to the same root cause: a toggle that didn't belong where it was.</p>`,
+            research: `<p class="case-lede">The goal was to validate the best approach for modernizing the panel through lightweight testing with internal participants — identifying which interaction patterns, icon styles, and copy choices best matched user expectations.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Most users understood icon-based controls without instruction.</h3>
+            <p>17 KUBRA participants completed a structured prototype test covering icon comprehension, discoverability, and copy clarity. <strong>59% correctly interpreted the modernized icon-based design</strong> with no prompting — a strong signal that the new direction aligned with mental models already in place.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Show/hide labeling outperformed every alternative tested.</h3>
+            <p>Participants chose between four copy approaches for the panel toggle. <strong>34% selected show/hide</strong> — the highest preference of any option — confirming it as the clearest way to communicate the panel's open and closed states.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>Users strongly preferred a minimal icon style.</h3>
+            <p>When shown multiple icon treatments, <strong>70% of participants chose the minimal icon variant</strong> over more complex alternatives — providing direct, data-backed justification for the production design direction.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A research-validated redesign of the panel toggle — repositioned to a conventional location, built around a minimal icon system, and documented as a reusable pattern that serves both the design system and engineering.</p>`,
+            features: `<div class="features__item">
+    <h3>Repositioned panel toggle</h3>
+    <p>Moved from its ambiguous in-between position to the panel's conventional leading edge — aligning with enterprise UI standards, eliminating backend state-management complexity, and giving the component a predictable, system-ready footprint.</p>
+</div>
+<div class="features__item">
+    <h3>Minimal icon system</h3>
+    <p>Selected through direct participant testing, the minimal icon set communicates panel actions clearly without visual noise. With 70% of testers choosing this style over alternatives, the decision was grounded in real preference data rather than assumption.</p>
+</div>
+<div class="features__item">
+    <h3>Validated copy and labeling</h3>
+    <p>Show/hide language — the top-performing option across all four alternatives tested — was adopted as the panel standard, reducing ambiguity and eliminating the need for additional user guidance at the interaction point.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">Research testing with 17 KUBRA participants validated the design direction across icon comprehension, interaction preference, and copy clarity.</p>`,
+            results: `<div class="results__item"><span class="results__num">59%</span><p>Of participants understood the modernized icon interface without any instruction</p></div>
+<div class="results__item"><span class="results__num">70%</span><p>Chose the minimal icon variant, directly informing the final production design</p></div>
+<div class="results__item"><span class="results__num">34%</span><p>Preferred show/hide labeling over all three alternative copy approaches tested</p></div>`
         },
         cookfresh: {
             eyebrow: 'Case Study — 2023',
