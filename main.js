@@ -339,18 +339,61 @@
 <div class="results__item"><span class="results__num">1</span><p>Configurable radial dial covering custom min/max wind speed thresholds per deployment</p></div>`
         },
         upup: {
-            eyebrow: 'Side Project — 2022',
-            title: 'Up &amp; Up',
-            deck: 'A collective breathing game for stress relief — slowing down a roomful of strangers, one inhale at a time.',
+            eyebrow: 'UI Design — 2026',
+            title: 'MyHQ+ &amp; EZ-PAY+ — Color Label Behavior',
+            deck: 'A living Figma document that lets clients visualize exactly how their branding color choices apply across MyHQ+ and EZ-PAY+ — replacing opaque token documentation with an interactive reference they can explore and update themselves, in real time.',
             banner: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=2000&q=85',
-            role: 'UX &amp; Motion Designer',
-            timeline: '6 weeks · 2022',
-            tools: 'Figma, After Effects',
-            client: 'Self-initiated',
-            team: 'Solo project',
-            platform: 'Web',
+            role: 'UI Visual Designer',
+            timeline: '2 weeks · 2026',
+            tools: 'Figma',
+            client: 'KUBRA',
+            team: '1 UI Designer, 1 PM, 2 Engineers',
+            platform: 'Software',
             next: 'eatxplore',
-            nextTitle: 'Eatxplore'
+            nextTitle: 'ASU Events Page',
+            problem: `<p class="case-lede">Clients were making branding color decisions without being able to see what those choices would actually look like once applied to the software.</p>
+<p>The existing method — sharing color token documentation — was too abstract for non-technical clients. Token names like <strong>primary-500</strong> or <strong>surface-interactive</strong> meant little without seeing them mapped to real UI components. Clients couldn't anticipate how a color decision made in isolation would ripple across buttons, labels, navigation, and status indicators throughout the product. The result was a slow, high-friction review process that required designer involvement for every question — and still sometimes led to post-implementation revisions when the final output didn't match expectations.</p>`,
+            research: `<p class="case-lede">Finding the right solution meant first understanding why existing approaches fell short. Three directions were evaluated before landing on the final approach.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>AI-driven tools were too complex to hand off.</h3>
+            <p>Figma Make was explored as a way to automate color previews, but the setup required too much technical knowledge for clients to maintain independently. Any time a client needed to update a token, they would have needed designer support — which recreated the exact bottleneck the tool was meant to solve.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Static presentation docs solved the wrong problem.</h3>
+            <p>A slide-based documentation approach would have been thorough but passive — clients could read about where colors applied but couldn't see the impact of their own choices. A lengthy document also risked not being read at all, leaving the core problem unsolved.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>Simplicity and interactivity had to coexist.</h3>
+            <p>Any solution that was too complex would go unused. The product owner and PM helped define the constraint clearly: the file had to be something a client could open, understand, and act on without training — while still providing enough context to make confident color decisions.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A Figma file built around the product's actual color token system — clients update token values once and watch the changes cascade across every affected component in real time, across three products, within a single focused document.</p>`,
+            features: `<div class="features__item">
+    <h3>Live token-driven previews</h3>
+    <p>The file is wired to the product's real color tokens. When a client updates a value, every component that references that token — buttons, labels, status indicators, navigation — updates instantly. No guesswork, no waiting for a designer to mock it up.</p>
+</div>
+<div class="features__item">
+    <h3>Three products, one file</h3>
+    <p>MyHQ+, EZ-PAY+, and a third affected product are all documented within a single Figma file — scoped to roughly three pages to keep it approachable. Clients get complete coverage without navigating multiple documents or managing version inconsistencies between them.</p>
+</div>
+<div class="features__item">
+    <h3>Built-in usage guide</h3>
+    <p>A dedicated guide page explains where each color label applies, how to update tokens, and what to expect when colors are implemented in production — giving clients both the interactive tool and the context to use it confidently.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">The Figma document replaced a process that required designer involvement for every color question with one clients could navigate independently.</p>`,
+            results: `<div class="results__item"><span class="results__num">3</span><p>Products documented within a single, client-ready Figma file</p></div>
+<div class="results__item"><span class="results__num">~3</span><p>Pages — intentionally scoped to stay approachable and immediately usable</p></div>
+<div class="results__item"><span class="results__num">0</span><p>Design tools or technical knowledge required for clients to explore their color choices</p></div>`
         }
     };
 
