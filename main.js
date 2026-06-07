@@ -211,7 +211,7 @@
             team: 'UI Designer, UX Researcher, PM, Developer',
             platform: 'Desktop Web Software',
             next: 'rei',
-            nextTitle: 'REI Backpack Finder',
+            nextTitle: 'Storm Center 5 — Wind Icon',
             problem: `<p class="case-lede">IVR+ configuration within ConfigHQ had grown fragmented — settings, transfer rules, and instance controls were scattered across the system with no clear ownership or hierarchy.</p>
 <p>Four specific gaps were driving the problem:</p>
 <ol class="insights" style="list-style:none;padding:0;margin:var(--s-4) 0 0;display:flex;flex-direction:column;gap:var(--s-3);">
@@ -282,18 +282,61 @@
 <div class="results__item"><span class="results__num">1</span><p>Unified maintenance mode giving operations full control over instance availability</p></div>`
         },
         rei: {
-            eyebrow: 'Case Study — 2023',
-            title: 'REI Backpack Finder',
-            deck: 'Helping novice backpackers find the right pack without the analysis paralysis of 200+ technical SKUs.',
+            eyebrow: 'UX/UI Design — 2025',
+            title: 'Storm Center 5 — Wind Icon Component',
+            deck: 'Designing a dynamic wind speed and direction component for KUBRA\'s Storm Center 5 outage map — giving users real-time environmental context to understand why outages are occurring and whether public safety events are in effect.',
             banner: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=2000&q=85',
             role: 'UX/UI Designer',
-            timeline: '8 weeks · 2023',
-            tools: 'Figma, Maze',
-            client: 'REI Co-op',
-            team: '1 PM, 2 Engineers, 1 Designer',
-            platform: 'Web &amp; Mobile',
+            timeline: '6 weeks · 2025',
+            tools: 'Figma',
+            client: 'KUBRA',
+            team: '1 Designer, 1 Engineer, 1 Director, 1 Product Manager',
+            platform: 'Mobile &amp; Web',
             next: 'upup',
-            nextTitle: 'Up &amp; Up'
+            nextTitle: 'Up &amp; Up',
+            problem: `<p class="case-lede">Storm Center 5's outage map showed users <em>where</em> power was out — but gave them no way to understand <em>why</em>.</p>
+<p>During high-wind events, wildfires, and other weather-driven incidents, users were left to interpret outage clusters in isolation with no environmental context. For a product used during active emergencies, this gap was significant: users couldn't tell whether an outage was routine maintenance or part of a larger public safety situation. A dedicated wind speed and direction component was identified as a critical missing piece — one that could surface the environmental conditions driving outages and help users make informed decisions during potentially life-affecting events.</p>`,
+            research: `<p class="case-lede">No existing component addressed this use case, so the team started from scratch — researching how other products had visualized real-time wind data before defining the approach.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Existing solutions set the benchmark.</h3>
+            <p>The team audited weather applications, public safety dashboards, and industrial monitoring tools to understand established conventions for wind visualization. This research surfaced a range of approaches — from simple directional arrows to animated radial indicators — and informed the criteria for what would work in the Storm Center context.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>The component had to work equally well on mobile and web.</h3>
+            <p>Storm Center 5 users split across mobile and desktop — often accessing the map during an active weather event, sometimes from a phone in the field. The component could not be a desktop-only experience. Every design decision was evaluated against both platforms simultaneously.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>Communicating severity clearly was the primary design challenge.</h3>
+            <p>The component needed to do more than display data — it had to convey urgency at a glance. Multiple icon treatments were explored and put through feedback loops with the Director and Product Manager to find the visual language that felt immediately meaningful in an emergency context.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A dynamic radial icon where a circular ring fills clockwise as wind speed increases — inspired by a vehicle's speedometer, where an advancing dial intuitively communicates rising intensity without requiring any data literacy from the user.</p>`,
+            features: `<div class="features__item">
+    <h3>Radial wind speed indicator</h3>
+    <p>The ring fills progressively as wind speed climbs, giving users an immediate visual read on severity. Minimum and maximum thresholds are fully configurable per deployment, allowing the component to adapt to regional conditions and utility-specific alert levels.</p>
+</div>
+<div class="features__item">
+    <h3>Directional wind arrow</h3>
+    <p>A directional indicator rotates to show real-time wind direction, helping users understand the path of a weather event and anticipate where conditions — and outages — may spread next.</p>
+</div>
+<div class="features__item">
+    <h3>Extensible public safety indicators</h3>
+    <p>The component architecture was designed to go beyond wind. Fire risk, humidity, and other environmental conditions can be surfaced using the same visual system — giving the outage map meaningful, expandable context for a wide range of public safety scenarios.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">The component shipped production-ready across both platforms — and its architecture opened the door to a broader set of public safety features than originally scoped.</p>`,
+            results: `<div class="results__item"><span class="results__num">2</span><p>Platforms — mobile and web — served by a single, unified component with no platform-specific compromises</p></div>
+<div class="results__item"><span class="results__num">4+</span><p>Public safety indicators supported by the extensible component architecture, including wind, fire risk, and humidity</p></div>
+<div class="results__item"><span class="results__num">1</span><p>Configurable radial dial covering custom min/max wind speed thresholds per deployment</p></div>`
         },
         upup: {
             eyebrow: 'Side Project — 2022',
