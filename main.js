@@ -338,6 +338,63 @@
 <div class="results__item"><span class="results__num">4+</span><p>Public safety indicators supported by the extensible component architecture, including wind, fire risk, and humidity</p></div>
 <div class="results__item"><span class="results__num">1</span><p>Configurable radial dial covering custom min/max wind speed thresholds per deployment</p></div>`
         },
+        mythicaltracker: {
+            eyebrow: 'Design & Development — 2026',
+            title: 'Mythical Tracker',
+            deck: 'A mobile-first PWA for tracking Magic: The Gathering tokens by commander — designed, built, and published to the Google Play Store entirely from scratch using vanilla HTML, CSS, and JavaScript. Every mechanic, from summoning sickness pools to per-commander state isolation, was engineered around real gameplay.',
+            banner: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=2000&q=85',
+            role: 'Designer &amp; Developer',
+            timeline: '2026',
+            tools: 'HTML / CSS / JS · PWABuilder · GitHub Pages',
+            client: 'Ironic Ink Designs LLC',
+            team: 'Solo project',
+            platform: 'Android (Google Play) &amp; Web (PWA)',
+            next: 'eatxplore',
+            nextTitle: 'ASU Events Page',
+            problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
+<p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
+            research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Two pools weren't enough — tokens needed a third state.</h3>
+            <p>Early builds tracked Ready and Sick. But haste cards invalidated the entire model — a creature with haste enters play already able to act. The solution was a three-pool system: <strong>Ready</strong>, <strong>Sick</strong>, and <strong>⚡ Hasted</strong>. Toggling haste collapses the view to a single full-width pool, then gracefully redistributes tokens when turned off.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Token counts were bleeding between commanders.</h3>
+            <p>Players switching between commanders mid-session found their previous counts carrying over — a fundamental state bug that made multi-commander sessions unusable. The fix introduced per-commander state isolation: each commander slot saves and restores its own pools, custom tokens, turn count, and haste state independently.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>A prominent New Game button was causing accidental resets.</h3>
+            <p>Testers repeatedly hit the header-level New Game button by accident mid-game — wiping progress they meant to keep. The button was moved into the hamburger menu as a clearly labeled danger action, requiring deliberate intent to trigger.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A fully offline Progressive Web App built in vanilla HTML, CSS, and JavaScript — no frameworks, no dependencies — published on the Google Play Store via PWABuilder.</p>`,
+            features: `<div class="features__item">
+    <h3>Per-commander state isolation</h3>
+    <p>Each of the six built-in commanders (plus a custom slot) maintains its own independent game state — pools, tokens, turn counter, haste mode, and attack/defense values. Switching commanders saves the current session and restores the next one exactly where it was left.</p>
+</div>
+<div class="features__item">
+    <h3>Three-pool haste system</h3>
+    <p>Ready, Sick, and Hasted pools model the full token lifecycle. Haste mode collapses into a single full-width counter that displays the total across all pools. Toggling haste off moves newly hasted tokens to Sick while leaving pre-existing Ready tokens untouched — matching the actual rules of the game.</p>
+</div>
+<div class="features__item">
+    <h3>Offline-first PWA</h3>
+    <p>A service worker caches all assets on first load — the app works with no internet connection, installs to the home screen like a native app, and is distributed on the Google Play Store via PWABuilder wrapping the GitHub Pages deployment.</p>
+</div>`,
+            resultsLede: `<p class="case-lede">Shipped from first commit to Google Play Store internal testing, with a live public web version available immediately after each push to GitHub.</p>`,
+            results: `<div class="results__item"><span class="results__num">6+</span><p>Commanders supported with full per-session state isolation and a custom commander builder</p></div>
+<div class="results__item"><span class="results__num">100%</span><p>Offline — service worker caches all assets on first load, no internet required after install</p></div>
+<div class="results__item"><span class="results__num">2</span><p>Distribution channels — Google Play Store (Android) and installable PWA via GitHub Pages</p></div>`
+        },
         upup: {
             eyebrow: 'UI Design — 2026',
             title: 'MyHQ+ &amp; EZ-PAY+ — Color Label Behavior',
@@ -349,8 +406,8 @@
             client: 'KUBRA',
             team: '1 UI Designer, 1 PM, 2 Engineers',
             platform: 'Software',
-            next: 'eatxplore',
-            nextTitle: 'ASU Events Page',
+            next: 'mythicaltracker',
+            nextTitle: 'Mythical Tracker',
             problem: `<p class="case-lede">Clients were making branding color decisions without being able to see what those choices would actually look like once applied to the software.</p>
 <p>The existing method — sharing color token documentation — was too abstract for non-technical clients. Token names like <strong>primary-500</strong> or <strong>surface-interactive</strong> meant little without seeing them mapped to real UI components. Clients couldn't anticipate how a color decision made in isolation would ripple across buttons, labels, navigation, and status indicators throughout the product. The result was a slow, high-friction review process that required designer involvement for every question — and still sometimes led to post-implementation revisions when the final output didn't match expectations.</p>`,
             research: `<p class="case-lede">Finding the right solution meant first understanding why existing approaches fell short. Three directions were evaluated before landing on the final approach.</p>
