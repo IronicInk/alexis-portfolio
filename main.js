@@ -342,7 +342,7 @@
             eyebrow: 'Design & Development — 2026',
             title: 'Mythical Tracker',
             deck: 'A mobile-first PWA for tracking Magic: The Gathering tokens by commander — designed, built, and published to the Google Play Store entirely from scratch using vanilla HTML, CSS, and JavaScript. Every mechanic, from summoning sickness pools to per-commander state isolation, was engineered around real gameplay.',
-            banner: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=2000&q=85',
+            banner: 'https://ironicink.github.io/Goblin-Tracker/screenshot2.jpg',
             role: 'Designer &amp; Developer',
             timeline: '2026',
             tools: 'HTML / CSS / JS · PWABuilder · GitHub Pages',
