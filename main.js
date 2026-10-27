@@ -38,15 +38,16 @@
             eyebrow: 'UI Design — 2026',
             title: 'KHQ Authentication',
             deck: 'Designing the complete authentication experience for KUBRA\'s MyHQ+ and EZ-PAY+ — every path a customer can take from the sign-in screen to their product, including profile creation, alternative sign-in methods, multi-factor authentication, code errors and password recovery.',
-            banner: 'assets/khq-auth/cover.svg',
+            banner: 'assets/khq-auth/cover.jpg',
+            solutionImage: 'assets/khq-auth/solution.jpg',
             role: 'UI Designer',
             timeline: '2026',
             tools: 'Figma · KUBRA Design System',
             client: 'KUBRA',
             team: 'UX Designer, UI Designer, Project Manager, Product Owner, Developers',
             platform: 'Web — MyHQ+ &amp; EZ-PAY+',
-            next: 'eatxplore',
-            nextTitle: 'ASU Events Page',
+            next: 'mythicaltracker',
+            nextTitle: 'Mythical Tracker',
             problem: `<p class="case-lede">Sign-in is the front door to MyHQ+ and EZ-PAY+ — the first screen every customer sees, and the one place where a single point of friction can stop them from ever reaching their account.</p>
 <p>Authentication is never one screen. Between the sign-in page and the product sits a web of branching paths: creating a new profile, choosing an alternative way in, verifying identity with a second factor, recovering from a mistyped or expired code, and resetting a forgotten password. Each path had to feel like part of the same experience, follow KUBRA's design system, and hold up across two products — while staying realistic for engineering to build. The UX structure defined <em>where</em> users could go; my job was to define what every step of that journey would look and feel like.</p>`,
             processLede: `<p class="case-lede">The work moved from handoff to high-fidelity flows in four stages — each one tightening the connection between design intent, user expectations and what engineering could deliver.</p>`,
@@ -109,7 +110,7 @@
 </div>`,
             flowsLede: `<p class="case-lede">Each section of the authentication experience contains its own sub-flows, showcasing the different scenarios a customer might run into on the way to their product.</p>`,
             flows: `<article class="flow">
-    <div class="flow__media"><img src="assets/khq-auth/flow-create-profile.svg" alt="Create profile flow" loading="lazy"></div>
+    <div class="flow__media"><img src="assets/khq-auth/flow-create-profile.jpg" alt="Create profile flow" loading="lazy"></div>
     <div class="flow__body">
         <span class="flow__num">01</span>
         <h3>Create profile</h3>
@@ -117,7 +118,7 @@
     </div>
 </article>
 <article class="flow">
-    <div class="flow__media"><img src="assets/khq-auth/flow-sign-in.svg" alt="Sign in flow" loading="lazy"></div>
+    <div class="flow__media"><img src="assets/khq-auth/flow-sign-in.jpg" alt="Sign in flow" loading="lazy"></div>
     <div class="flow__body">
         <span class="flow__num">02</span>
         <h3>Sign in</h3>
@@ -125,7 +126,7 @@
     </div>
 </article>
 <article class="flow">
-    <div class="flow__media"><img src="assets/khq-auth/flow-alternative-methods.svg" alt="Alternative sign-in methods flow" loading="lazy"></div>
+    <div class="flow__media"><img src="assets/khq-auth/flow-alternative-methods.jpg" alt="Alternative sign-in methods flow" loading="lazy"></div>
     <div class="flow__body">
         <span class="flow__num">03</span>
         <h3>Alternative methods</h3>
@@ -133,7 +134,7 @@
     </div>
 </article>
 <article class="flow">
-    <div class="flow__media"><img src="assets/khq-auth/flow-code-errors.svg" alt="Code errors flow" loading="lazy"></div>
+    <div class="flow__media"><img src="assets/khq-auth/flow-code-errors.jpg" alt="Code errors flow" loading="lazy"></div>
     <div class="flow__body">
         <span class="flow__num">04</span>
         <h3>Code errors</h3>
@@ -141,7 +142,7 @@
     </div>
 </article>
 <article class="flow">
-    <div class="flow__media"><img src="assets/khq-auth/flow-mfa.svg" alt="MFA / two-factor authentication flow" loading="lazy"></div>
+    <div class="flow__media"><img src="assets/khq-auth/flow-mfa.jpg" alt="MFA / two-factor authentication flow" loading="lazy"></div>
     <div class="flow__body">
         <span class="flow__num">05</span>
         <h3>MFA / 2-Factor</h3>
@@ -149,7 +150,7 @@
     </div>
 </article>
 <article class="flow">
-    <div class="flow__media"><img src="assets/khq-auth/flow-forgot-password.svg" alt="Forgot password flow" loading="lazy"></div>
+    <div class="flow__media"><img src="assets/khq-auth/flow-forgot-password.jpg" alt="Forgot password flow" loading="lazy"></div>
     <div class="flow__body">
         <span class="flow__num">06</span>
         <h3>Forgot password</h3>
@@ -483,8 +484,8 @@
             client: 'Ironic Ink Designs LLC',
             team: 'Solo project',
             platform: 'Android (Google Play) &amp; Web (PWA)',
-            next: 'khqauth',
-            nextTitle: 'KHQ Authentication',
+            next: 'eatxplore',
+            nextTitle: 'ASU Events Page',
             problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
 <p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
             research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>
@@ -540,8 +541,8 @@
             client: 'KUBRA',
             team: '1 UI Designer, 1 PM, 2 Engineers',
             platform: 'Software',
-            next: 'mythicaltracker',
-            nextTitle: 'Mythical Tracker',
+            next: 'khqauth',
+            nextTitle: 'KHQ Authentication',
             problem: `<p class="case-lede">Clients were making branding color decisions without being able to see what those choices would actually look like once applied to the software.</p>
 <p>The existing method — sharing color token documentation — was too abstract for non-technical clients. Token names like <strong>primary-500</strong> or <strong>surface-interactive</strong> meant little without seeing them mapped to real UI components. Clients couldn't anticipate how a color decision made in isolation would ripple across buttons, labels, navigation, and status indicators throughout the product. The result was a slow, high-friction review process that required designer involvement for every question — and still sometimes led to post-implementation revisions when the final output didn't match expectations.</p>`,
             research: `<p class="case-lede">Finding the right solution meant first understanding why existing approaches fell short. Three directions were evaluated before landing on the final approach.</p>
