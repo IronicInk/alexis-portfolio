@@ -30,7 +30,7 @@ The site is a single HTML file acting as a two-page SPA. Navigation works by tog
 
 **Home sections** (in order): hero (`#top`, with dot-field `<canvas>`), Work (`#work`), Approach/principles (`#approach`), About (`#about`), Contact (`#contact`, inverted panel). Nav links scrollspy against these ids.
 
-**Project options** in `main.js`: `device: true` shows the banner as a phone screenshot on a mat (no cropping); add `solutionImage: 'url'` to show the figure in the Solution section (hidden otherwise). Card thumbnails for phone screenshots use `card__media card__media--device`.
+**Project options** in `main.js`: `device: true` shows the banner as a phone screenshot on a mat (no cropping); add `solutionImage: 'url'` to show the figure in the Solution section (hidden otherwise). Optional sections `process` (+ `processLede`, `.process__step` items) and `flows` (+ `flowsLede`, `.flow` cards) appear only when defined — any `<section data-optional="key">` is hidden unless the project has that key. Section numbers come from a CSS counter and alt backgrounds are assigned in `navigate()`, so neither is hardcoded. Card thumbnails for phone screenshots use `card__media card__media--device`.
 
 ## CSS system
 
@@ -54,6 +54,7 @@ Projects appear in this order in the grid:
 | Key | Title | Card image |
 |-----|-------|------------|
 | `mythicaltracker` | Mythical Tracker | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
+| `khqauth` | KHQ Authentication | `assets/khq-auth/cover.svg` (wireframe placeholder) |
 | `eatxplore` | ASU Events Page | Unsplash placeholder |
 | `norden` | ASU Rankings Page | Unsplash placeholder |
 | `mirror` | KHQ Side Panel Update | Unsplash placeholder |
@@ -68,7 +69,7 @@ Projects appear in this order in the grid:
 
 ### Next/prev chain (must stay consistent)
 ```
-mythicaltracker → eatxplore → norden → mirror → cookfresh → rei → upup → mythicaltracker
+mythicaltracker → khqauth → eatxplore → norden → mirror → cookfresh → rei → upup → mythicaltracker
 ```
 If you add or remove a project, update BOTH the outgoing project's `next`/`nextTitle` AND the incoming project's `next`/`nextTitle` to keep the loop intact.
 
@@ -91,6 +92,7 @@ If you add or remove a project, update BOTH the outgoing project's `next`/`nextT
 
 ## Placeholder content still to replace
 
+- **KHQ Authentication images**: `assets/khq-auth/*.svg` are generated wireframe placeholders (the Figma file is private). Replace with real Figma exports — `cover`, `flow-create-profile`, `flow-sign-in`, `flow-alternative-methods`, `flow-code-errors`, `flow-mfa`, `flow-forgot-password` — and update the extensions in `index.html` and `main.js`.
 - **Images**: All projects except `mythicaltracker` still use Unsplash URLs. Search for `unsplash.com` in `index.html` and `main.js` to find all occurrences.
 - **Email**: `hello@alexisbojorquez.com` — search and replace everywhere with the real contact email.
 - **Resume**: download link points to `/resume.pdf`; drop the file at `assets/resume.pdf` and update the `href`.

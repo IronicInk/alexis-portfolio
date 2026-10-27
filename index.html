@@ -183,7 +183,7 @@
                 </div>
             </div>
 
-            <h3 class="work__subhead"><span>Featured</span><span>04</span></h3>
+            <h3 class="work__subhead"><span>Featured</span><span>05</span></h3>
 
             <div class="cards" data-view="card" id="cards-featured" data-reveal data-spec="Card · r20 · 1px line · 10px mat inset">
 
@@ -209,6 +209,32 @@
                         </span>
                         <div class="card__bottom-meta">
                             <span>2026</span><span aria-hidden="true">·</span><strong>Ironic Ink Designs LLC</strong>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- KHQ AUTHENTICATION -->
+                <button class="card" data-nav="project" data-project="khqauth" data-preview="assets/khq-auth/cover.svg">
+                    <div class="card__media">
+                        <img src="assets/khq-auth/cover.svg" alt="KHQ Authentication — sign-in flows for MyHQ+ and EZ-PAY+" loading="lazy">
+                    </div>
+                    <div class="card__row">
+                        <h3 class="card__title">KHQ Authentication</h3>
+                        <div class="card__meta">
+                            <div class="card__tags">
+                                <span class="card__tag">UI Design</span>
+                                <span class="card__tag">Design System</span>
+                                <span class="card__tag">Flows</span>
+                            </div>
+                            <p class="card__desc">Designing every path from the sign-in screen to the product for MyHQ+ and EZ-PAY+ — profile creation, alternative methods, MFA, code errors and password recovery.</p>
+                        </div>
+                        <span class="card__arrow" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <div class="card__bottom-meta">
+                            <span>2026</span><span aria-hidden="true">·</span><strong>KUBRA</strong>
                         </div>
                     </div>
                 </button>
@@ -615,7 +641,7 @@
             <div class="container">
                 <div class="case-row">
                     <div class="case-row__label">
-                        <span class="section-index">01</span>
+                        <span class="section-index"></span>
                         <h2 class="section-label">The Problem</h2>
                     </div>
                     <div class="case-row__body" data-field="problem"></div>
@@ -623,11 +649,25 @@
             </div>
         </section>
 
-        <section class="case__section case__section--alt">
+        <!-- Optional: shown only when a project defines `process` -->
+        <section class="case__section" data-optional="process" hidden>
             <div class="container">
                 <div class="case-row">
                     <div class="case-row__label">
-                        <span class="section-index">02</span>
+                        <span class="section-index"></span>
+                        <h2 class="section-label">Process</h2>
+                    </div>
+                    <div class="case-row__body" data-field="processLede"></div>
+                </div>
+                <ol class="process" data-field="process"></ol>
+            </div>
+        </section>
+
+        <section class="case__section">
+            <div class="container">
+                <div class="case-row">
+                    <div class="case-row__label">
+                        <span class="section-index"></span>
                         <h2 class="section-label">Research &amp; Insights</h2>
                     </div>
                     <div class="case-row__body" data-field="research"></div>
@@ -639,7 +679,7 @@
             <div class="container">
                 <div class="case-row">
                     <div class="case-row__label">
-                        <span class="section-index">03</span>
+                        <span class="section-index"></span>
                         <h2 class="section-label">The Solution</h2>
                     </div>
                     <div class="case-row__body" data-field="solutionBody"></div>
@@ -652,11 +692,25 @@
             </div>
         </section>
 
-        <section class="case__section case__section--alt">
+        <!-- Optional: shown only when a project defines `flows` -->
+        <section class="case__section" data-optional="flows" hidden>
             <div class="container">
                 <div class="case-row">
                     <div class="case-row__label">
-                        <span class="section-index">04</span>
+                        <span class="section-index"></span>
+                        <h2 class="section-label">The Flows</h2>
+                    </div>
+                    <div class="case-row__body" data-field="flowsLede"></div>
+                </div>
+                <div class="flows" data-field="flows"></div>
+            </div>
+        </section>
+
+        <section class="case__section">
+            <div class="container">
+                <div class="case-row">
+                    <div class="case-row__label">
+                        <span class="section-index"></span>
                         <h2 class="section-label">Results</h2>
                     </div>
                     <div class="case-row__body" data-field="resultsLede"></div>

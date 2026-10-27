@@ -34,6 +34,133 @@
        PROJECT DATA
        ============================================================= */
     const projects = {
+        khqauth: {
+            eyebrow: 'UI Design — 2026',
+            title: 'KHQ Authentication',
+            deck: 'Designing the complete authentication experience for KUBRA\'s MyHQ+ and EZ-PAY+ — every path a customer can take from the sign-in screen to their product, including profile creation, alternative sign-in methods, multi-factor authentication, code errors and password recovery.',
+            banner: 'assets/khq-auth/cover.svg',
+            role: 'UI Designer',
+            timeline: '2026',
+            tools: 'Figma · KUBRA Design System',
+            client: 'KUBRA',
+            team: 'UX Designer, UI Designer, Project Manager, Product Owner, Developers',
+            platform: 'Web — MyHQ+ &amp; EZ-PAY+',
+            next: 'eatxplore',
+            nextTitle: 'ASU Events Page',
+            problem: `<p class="case-lede">Sign-in is the front door to MyHQ+ and EZ-PAY+ — the first screen every customer sees, and the one place where a single point of friction can stop them from ever reaching their account.</p>
+<p>Authentication is never one screen. Between the sign-in page and the product sits a web of branching paths: creating a new profile, choosing an alternative way in, verifying identity with a second factor, recovering from a mistyped or expired code, and resetting a forgotten password. Each path had to feel like part of the same experience, follow KUBRA's design system, and hold up across two products — while staying realistic for engineering to build. The UX structure defined <em>where</em> users could go; my job was to define what every step of that journey would look and feel like.</p>`,
+            processLede: `<p class="case-lede">The work moved from handoff to high-fidelity flows in four stages — each one tightening the connection between design intent, user expectations and what engineering could deliver.</p>`,
+            process: `<li class="process__step">
+    <span class="process__label">Step 01</span>
+    <h3>Handoff</h3>
+    <p>Received the UX designer's handoff defining the overall structure and navigation of the authentication experience, then translated it into high-fidelity mockups using KUBRA's design system.</p>
+</li>
+<li class="process__step">
+    <span class="process__label">Step 02</span>
+    <h3>Pattern research</h3>
+    <p>Studied a wide range of sign-in experiences to identify the most usable, established patterns — then used them to decide how screens, fields, verification and recovery would be structured.</p>
+</li>
+<li class="process__step">
+    <span class="process__label">Step 03</span>
+    <h3>Designing every flow</h3>
+    <p>Designed the complete set of flows while working closely with project managers to surface bugs and complications, and with developers to understand technical limitations before they became design problems.</p>
+</li>
+<li class="process__step">
+    <span class="process__label">Step 04</span>
+    <h3>Review &amp; presentation</h3>
+    <p>Reviewed the entire end-to-end flow for consistency and gaps, then presented it to the project manager, product owner and development team.</p>
+</li>`,
+            research: `<p class="case-lede">Before designing the flows, I researched how established sign-in experiences handle the same moments — looking for patterns users already understand, so the interface would never have to explain itself.</p>
+<ol class="insights">
+    <li>
+        <span class="insights__num">i.</span>
+        <div>
+            <h3>Familiar patterns lower the cost of getting in.</h3>
+            <p>Customers arrive at a sign-in screen with strong expectations built by every other product they use. Leaning on established conventions for field order, actions and recovery links meant less to learn at the exact moment people want to get through quickly.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">ii.</span>
+        <div>
+            <h3>Errors need a clear way forward, not just a message.</h3>
+            <p>An incorrect or expired code is one of the most common moments of failure in authentication. The strongest experiences pair every error with a specific explanation and an obvious next action — so a mistake never becomes a dead end.</p>
+        </div>
+    </li>
+    <li>
+        <span class="insights__num">iii.</span>
+        <div>
+            <h3>Security steps should feel reassuring, not obstructive.</h3>
+            <p>Multi-factor authentication adds protection but also adds a step. Clear framing of why the step exists and what to do next helps it read as a safeguard rather than a roadblock.</p>
+        </div>
+    </li>
+</ol>`,
+            solutionBody: `<p class="case-lede">A complete, design-system-aligned authentication experience — organized into six flow groups, each with its own set of scenarios, that together cover every route a customer can take from sign-in to their product.</p>`,
+            features: `<div class="features__item">
+    <h3>Every path, one experience</h3>
+    <p>Each flow group branches into multiple scenarios, yet all of them share the same structure, components and voice — so customers always recognize where they are, whichever route they take.</p>
+</div>
+<div class="features__item">
+    <h3>Built on the design system</h3>
+    <p>Every screen was designed with KUBRA's design system components, keeping MyHQ+ and EZ-PAY+ consistent with each other and giving developers patterns they already knew how to build.</p>
+</div>
+<div class="features__item">
+    <h3>Shaped with engineering</h3>
+    <p>Ongoing conversations with project managers and developers surfaced bugs, complications and technical limits early — so the final flows were designed for what could actually ship.</p>
+</div>`,
+            flowsLede: `<p class="case-lede">Each section of the authentication experience contains its own sub-flows, showcasing the different scenarios a customer might run into on the way to their product.</p>`,
+            flows: `<article class="flow">
+    <div class="flow__media"><img src="assets/khq-auth/flow-create-profile.svg" alt="Create profile flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">01</span>
+        <h3>Create profile</h3>
+        <p>Guiding new customers from their first details to a working profile.</p>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/khq-auth/flow-sign-in.svg" alt="Sign in flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">02</span>
+        <h3>Sign in</h3>
+        <p>The primary route from credentials straight into the customer's product.</p>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/khq-auth/flow-alternative-methods.svg" alt="Alternative sign-in methods flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">03</span>
+        <h3>Alternative methods</h3>
+        <p>Other ways in, for when the default sign-in isn't the right fit.</p>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/khq-auth/flow-code-errors.svg" alt="Code errors flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">04</span>
+        <h3>Code errors</h3>
+        <p>Recovering from incorrect or expired verification codes with a clear next step.</p>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/khq-auth/flow-mfa.svg" alt="MFA / two-factor authentication flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">05</span>
+        <h3>MFA / 2-Factor</h3>
+        <p>A second verification step that adds security without adding confusion.</p>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/khq-auth/flow-forgot-password.svg" alt="Forgot password flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">06</span>
+        <h3>Forgot password</h3>
+        <p>Helping customers safely regain access and get back to their account.</p>
+    </div>
+</article>`,
+            resultsLede: `<p class="case-lede">The complete authentication flow was reviewed end-to-end and presented to the project manager, product owner and development team.</p>`,
+            results: `<div class="results__item"><span class="results__num">6</span><p>Flow groups covering every route from sign-in to the product</p></div>
+<div class="results__item"><span class="results__num">2</span><p>Products — MyHQ+ and EZ-PAY+ — served by one consistent authentication experience</p></div>
+<div class="results__item"><span class="results__num">4</span><p>Stages from UX handoff to a final review with product, project and engineering</p></div>`
+        },
         eatxplore: {
             eyebrow: 'UX/UI Design — 2023',
             title: 'ASU Events Page',
@@ -356,8 +483,8 @@
             client: 'Ironic Ink Designs LLC',
             team: 'Solo project',
             platform: 'Android (Google Play) &amp; Web (PWA)',
-            next: 'eatxplore',
-            nextTitle: 'ASU Events Page',
+            next: 'khqauth',
+            nextTitle: 'KHQ Authentication',
             problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
 <p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
             research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>
@@ -484,6 +611,12 @@
             if (banner) banner.classList.toggle('is-device', !!p.device);
             if (bannerImg && titleEl) bannerImg.alt = titleEl.textContent;
             if (solutionFig) solutionFig.hidden = !p.solutionImage;
+            document.querySelectorAll('.case [data-optional]').forEach(sec => {
+                sec.hidden = !p[sec.dataset.optional];
+            });
+            document.querySelectorAll('.case__section:not([hidden])').forEach((sec, i) => {
+                sec.classList.toggle('case__section--alt', i % 2 === 1);
+            });
             if (titleEl) document.title = `${titleEl.textContent} — Alexis Bojorquez`;
 
             const nextBtn = document.getElementById('next-project-btn');
