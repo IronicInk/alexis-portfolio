@@ -28,9 +28,19 @@ The site is a single HTML file acting as a two-page SPA. Navigation works by tog
 1. Add an entry to the `projects` object in `main.js` with the correct `next`/`nextTitle` chain.
 2. Add a `<button class="card">` in `index.html` inside the appropriate `#cards-featured` or `#cards-additional` container, with `data-nav="project"` and `data-project="your-key"`.
 
+**Home sections** (in order): hero (`#top`, with dot-field `<canvas>`), Work (`#work`), Approach/principles (`#approach`), About (`#about`), Contact (`#contact`, inverted panel). Nav links scrollspy against these ids.
+
+**Project options** in `main.js`: `device: true` shows the banner as a phone screenshot on a mat (no cropping); add `solutionImage: 'url'` to show the figure in the Solution section (hidden otherwise). Card thumbnails for phone screenshots use `card__media card__media--device`.
+
 ## CSS system
 
-All design tokens are CSS custom properties in `:root` at the top of `styles.css` — colors, spacing scale, fonts, easing curves, and durations. Change those to retheme the whole site.
+All design tokens are CSS custom properties in `:root` at the top of `styles.css` — colors, spacing scale, fonts, easing curves, and durations. Change those to retheme the whole site. Dark mode overrides the same tokens under `:root[data-theme="dark"]`; the inline script in `<head>` sets `data-theme` before paint (stored choice in `localStorage.theme`, else OS preference). Any new color must be added to both blocks.
+
+Fonts: Instrument Serif (display), Instrument Sans (body), JetBrains Mono (labels).
+
+**Inspect mode** (nav button or `G` key) overlays a 12-col grid + 8pt baseline and labels any element carrying a `data-spec="..."` attribute. Don't put `data-spec` on elements with `overflow: hidden` or that already use `::after`.
+
+**Scroll reveal**: add `data-reveal` (optionally `style="--reveal-delay: 120ms"`) to fade an element in. Don't put it on `.card` itself (it overrides the card's hover transition) — put it on the container.
 
 The `.cards` container supports two layout modes controlled by the `data-view` attribute (`"list"` or `"card"`). CSS selectors `.cards[data-view="list"]` and `.cards[data-view="card"]` handle the two layouts entirely; the JS `setView()` function only toggles the attribute and the toggle button state.
 

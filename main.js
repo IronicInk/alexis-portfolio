@@ -5,23 +5,29 @@
     const nav = document.getElementById('nav');
 
     /* =============================================================
-       ROTATING WORD — Hayden-style
+       ROTATING WORD — swaps the accent word and redraws the scribble
        ============================================================= */
     const rotatorEl = document.getElementById('rotator');
-    const words = ['interfaces', 'systems', 'experiences', 'products', 'brands'];
+    const scribble = document.querySelector('.hero__scribble');
+    const words = ['interfaces', 'systems', 'tools', 'products', 'experiences'];
     let wordIdx = 0;
 
     function rotateWord() {
-        if (prefersReducedMotion || !rotatorEl) return;
+        if (document.hidden) return;
         rotatorEl.classList.add('is-out');
         setTimeout(() => {
             wordIdx = (wordIdx + 1) % words.length;
             rotatorEl.textContent = words[wordIdx];
             rotatorEl.classList.remove('is-out');
-        }, 360);
+            if (scribble) {
+                scribble.classList.remove('is-redraw');
+                void scribble.getBoundingClientRect(); // restart the draw animation
+                scribble.classList.add('is-redraw');
+            }
+        }, 380);
     }
     if (rotatorEl && !prefersReducedMotion) {
-        setInterval(rotateWord, 2400);
+        setInterval(rotateWord, 2800);
     }
 
     /* =============================================================
@@ -154,7 +160,7 @@
             team: 'Visual Designer, UX Researcher, Director, PM, Developer',
             platform: 'Desktop Web Software',
             next: 'cookfresh',
-            nextTitle: 'Cook Fresh',
+            nextTitle: 'Config HQ — IVR Instances',
             problem: `<p class="case-lede">KHQ's side panel used a non-standard toggle button positioned between the panel's inner and outer boundaries — an unusual pattern that created compounding problems across design, development, and usability.</p>
 <p>For users, the button's placement was unintuitive and inconsistent with established UI conventions, making the panel difficult to discover and interact with confidently. For engineering, the in-between positioning required complex logic to maintain correct toggle behavior as the panel changed state — a persistent maintenance burden. For the design system, the atypical placement made it nearly impossible to define repeatable patterns around the component, blocking meaningful system-level work downstream. All three problems pointed to the same root cause: a toggle that didn't belong where it was.</p>`,
             research: `<p class="case-lede">The goal was to validate the best approach for modernizing the panel through lightweight testing with internal participants — identifying which interaction patterns, icon styles, and copy choices best matched user expectations.</p>
@@ -293,7 +299,7 @@
             team: '1 Designer, 1 Engineer, 1 Director, 1 Product Manager',
             platform: 'Mobile &amp; Web',
             next: 'upup',
-            nextTitle: 'Up &amp; Up',
+            nextTitle: 'MyHQ+ & EZ-PAY+ Color Labels',
             problem: `<p class="case-lede">Storm Center 5's outage map showed users <em>where</em> power was out — but gave them no way to understand <em>why</em>.</p>
 <p>During high-wind events, wildfires, and other weather-driven incidents, users were left to interpret outage clusters in isolation with no environmental context. For a product used during active emergencies, this gap was significant: users couldn't tell whether an outage was routine maintenance or part of a larger public safety situation. A dedicated wind speed and direction component was identified as a critical missing piece — one that could surface the environmental conditions driving outages and help users make informed decisions during potentially life-affecting events.</p>`,
             research: `<p class="case-lede">No existing component addressed this use case, so the team started from scratch — researching how other products had visualized real-time wind data before defining the approach.</p>
@@ -343,6 +349,7 @@
             title: 'Mythical Tracker',
             deck: 'A mobile-first PWA for tracking Magic: The Gathering tokens by commander — designed, built, and published to the Google Play Store entirely from scratch using vanilla HTML, CSS, and JavaScript. Every mechanic, from summoning sickness pools to per-commander state isolation, was engineered around real gameplay.',
             banner: 'https://ironicink.github.io/Goblin-Tracker/screenshot2.jpg',
+            device: true, // phone screenshot — shown on a mat instead of cropped
             role: 'Designer &amp; Developer',
             timeline: '2026',
             tools: 'HTML / CSS / JS · PWABuilder · GitHub Pages',
@@ -457,25 +464,42 @@
     /* =============================================================
        NAVIGATION (page swap + anchor scroll)
        ============================================================= */
+    const homeTitle = document.title;
+
     function navigate(target, opts = {}) {
         const { anchor, project } = opts;
         if (target === 'project' && project && projects[project]) {
             const p = projects[project];
             document.querySelectorAll('[data-field]').forEach(el => {
                 const key = el.dataset.field;
-                if (key === 'banner') el.src = p.banner;
+                if (key === 'banner' || key === 'solutionImage') {
+                    if (p[key]) el.src = p[key];
+                }
                 else if (p[key] !== undefined) el.innerHTML = p[key];
             });
+            const titleEl = document.querySelector('[data-field="title"]');
+            const banner = document.getElementById('case-banner');
+            const bannerImg = document.querySelector('[data-field="banner"]');
+            const solutionFig = document.getElementById('solution-image');
+            if (banner) banner.classList.toggle('is-device', !!p.device);
+            if (bannerImg && titleEl) bannerImg.alt = titleEl.textContent;
+            if (solutionFig) solutionFig.hidden = !p.solutionImage;
+            if (titleEl) document.title = `${titleEl.textContent} — Alexis Bojorquez`;
+
             const nextBtn = document.getElementById('next-project-btn');
             const nextTitle = document.getElementById('next-project-title');
             if (nextBtn && p.next) {
                 nextBtn.dataset.project = p.next;
                 nextTitle.textContent = p.nextTitle;
             }
+        } else if (target === 'home') {
+            document.title = homeTitle;
         }
         document.querySelectorAll('.page').forEach(pg => {
             pg.classList.toggle('is-active', pg.dataset.page === target);
         });
+        document.body.dataset.current = target;
+        if (target !== 'home') setCurrentLink(null);
         if (anchor) {
             requestAnimationFrame(() => {
                 const el = document.getElementById(anchor);
@@ -512,12 +536,16 @@
     });
 
     /* =============================================================
-       STICKY NAV
+       STICKY NAV + reading progress (case study pages)
        ============================================================= */
     if (nav) {
         let ticking = false;
         const update = () => {
             nav.classList.toggle('is-scrolled', window.scrollY > 24);
+            if (document.body.dataset.current === 'project') {
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                nav.style.setProperty('--progress', max > 0 ? Math.min(window.scrollY / max, 1) : 0);
+            }
             ticking = false;
         };
         window.addEventListener('scroll', () => {
@@ -558,26 +586,32 @@
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            const markInvalid = (field, invalid) => {
+                field.classList.toggle('is-invalid', invalid);
+                field.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+            };
+
             // Simple validation: check required fields
             const required = contactForm.querySelectorAll('[required]');
             let valid = true;
             required.forEach(field => {
-                if (!field.value.trim()) {
-                    field.style.borderBottomColor = '#c45a2a';
-                    valid = false;
-                } else {
-                    field.style.borderBottomColor = '';
-                }
+                const empty = !field.value.trim();
+                markInvalid(field, empty);
+                if (empty) valid = false;
             });
 
             // Validate email shape
             const email = contactForm.querySelector('#cf-email');
             if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-                email.style.borderBottomColor = '#c45a2a';
+                markInvalid(email, true);
                 valid = false;
             }
 
-            if (!valid) return;
+            if (!valid) {
+                const firstInvalid = contactForm.querySelector('.is-invalid');
+                if (firstInvalid) firstInvalid.focus();
+                return;
+            }
 
             // Show success state (placeholder — replace with real submission)
             if (contactMsg) {
@@ -594,9 +628,218 @@
         // Clear error state on input
         contactForm.querySelectorAll('.contact-form__input').forEach(field => {
             field.addEventListener('input', () => {
-                field.style.borderBottomColor = '';
+                field.classList.remove('is-invalid');
+                field.removeAttribute('aria-invalid');
             });
         });
     }
+
+    /* =============================================================
+       SCROLLSPY — underline the nav link for the section in view
+       ============================================================= */
+    const spyLinks = document.querySelectorAll('.nav__links [data-anchor]');
+
+    function setCurrentLink(id) {
+        spyLinks.forEach(l => l.classList.toggle('is-current', l.dataset.anchor === id));
+    }
+
+    if ('IntersectionObserver' in window) {
+        const spy = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (en.isIntersecting && document.body.dataset.current === 'home') {
+                    setCurrentLink(en.target.id === 'top' ? null : en.target.id);
+                }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        ['top', 'work', 'approach', 'about', 'contact'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) spy.observe(el);
+        });
+    }
+
+    /* =============================================================
+       SCROLL REVEAL
+       ============================================================= */
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(en => {
+                if (en.isIntersecting) {
+                    en.target.classList.add('is-visible');
+                    io.unobserve(en.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+        revealEls.forEach(el => io.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('is-visible'));
+    }
+
+    /* =============================================================
+       LOCAL TIME — Phoenix doesn't observe DST
+       ============================================================= */
+    const timeEl = document.getElementById('local-time');
+    if (timeEl) {
+        const fmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Phoenix' });
+        const tick = () => { timeEl.textContent = fmt.format(new Date()); };
+        tick();
+        setInterval(tick, 20000);
+    }
+
+    /* =============================================================
+       DOT FIELD — hero canvas; dots part around the cursor
+       ============================================================= */
+    let refreshField = () => {};
+    const canvas = document.getElementById('field');
+
+    if (canvas && canvas.getContext) {
+        const ctx = canvas.getContext('2d');
+        const hero = canvas.parentElement;
+        const GAP = 26;
+        const RADIUS = 150;
+        const pointer = { x: -9999, y: -9999, active: false };
+        let dots = [];
+        let w = 0, h = 0;
+        let raf = null;
+        let colors = { dot: '#999', accent: '#c4572e' };
+
+        const readColors = () => {
+            const cs = getComputedStyle(document.documentElement);
+            colors = {
+                dot: cs.getPropertyValue('--color-field').trim(),
+                accent: cs.getPropertyValue('--color-accent').trim()
+            };
+        };
+
+        const draw = () => {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = colors.dot;
+            ctx.beginPath();
+            for (const d of dots) {
+                if (d.a > 0.04) continue;
+                ctx.moveTo(d.x + 1.1, d.y);
+                ctx.arc(d.x, d.y, 1.1, 0, Math.PI * 2);
+            }
+            ctx.fill();
+            ctx.fillStyle = colors.accent;
+            for (const d of dots) {
+                if (d.a <= 0.04) continue;
+                ctx.globalAlpha = 0.25 + d.a * 0.75;
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, 1.1 + d.a * 1.8, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+        };
+
+        const resize = () => {
+            const rect = canvas.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = rect.width; h = rect.height;
+            canvas.width = Math.round(w * dpr);
+            canvas.height = Math.round(h * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            dots = [];
+            for (let y = GAP / 2; y < h; y += GAP) {
+                for (let x = GAP / 2; x < w; x += GAP) dots.push({ x, y, ox: x, oy: y, a: 0 });
+            }
+            draw();
+        };
+
+        const step = () => {
+            let moving = false;
+            for (const d of dots) {
+                let tx = d.ox, ty = d.oy, ta = 0;
+                if (pointer.active) {
+                    const dx = d.ox - pointer.x, dy = d.oy - pointer.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < RADIUS && dist > 0.01) {
+                        const f = 1 - dist / RADIUS;
+                        const push = f * f * 22;
+                        tx += (dx / dist) * push;
+                        ty += (dy / dist) * push;
+                        ta = f;
+                    }
+                }
+                d.x += (tx - d.x) * 0.14;
+                d.y += (ty - d.y) * 0.14;
+                d.a += (ta - d.a) * 0.14;
+                if (Math.abs(tx - d.x) > 0.05 || Math.abs(ty - d.y) > 0.05 || Math.abs(ta - d.a) > 0.01) moving = true;
+            }
+            draw();
+            raf = moving ? requestAnimationFrame(step) : null;
+        };
+        const kick = () => { if (!raf) raf = requestAnimationFrame(step); };
+
+        refreshField = () => { readColors(); draw(); };
+        readColors();
+        resize();
+
+        if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas);
+        else window.addEventListener('resize', resize);
+
+        if (!prefersReducedMotion) {
+            hero.addEventListener('pointermove', e => {
+                const rect = canvas.getBoundingClientRect();
+                pointer.x = e.clientX - rect.left;
+                pointer.y = e.clientY - rect.top;
+                pointer.active = true;
+                kick();
+            });
+            hero.addEventListener('pointerleave', () => { pointer.active = false; kick(); });
+        }
+    }
+
+    /* =============================================================
+       THEME TOGGLE — explicit choice is remembered; otherwise follow the OS
+       ============================================================= */
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (themeBtn) themeBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#141310' : '#f4f1ea');
+        refreshField();
+    }
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            try { localStorage.setItem('theme', next); } catch (e) {}
+            applyTheme(next);
+        });
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        let stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (err) {}
+        if (!stored) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    /* =============================================================
+       INSPECT MODE — overlay the grid and annotate key specs ("G")
+       ============================================================= */
+    const inspectBtn = document.getElementById('inspect-toggle');
+    const vwEl = document.getElementById('inspect-vw');
+
+    function setInspect(on) {
+        document.body.classList.toggle('is-inspecting', on);
+        if (inspectBtn) inspectBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (vwEl) vwEl.textContent = window.innerWidth;
+    }
+    const isInspecting = () => document.body.classList.contains('is-inspecting');
+
+    if (inspectBtn) inspectBtn.addEventListener('click', () => setInspect(!isInspecting()));
+    document.addEventListener('keydown', e => {
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return;
+        if (e.key === 'g' || e.key === 'G') setInspect(!isInspecting());
+        else if (e.key === 'Escape' && isInspecting()) setInspect(false);
+    });
+    window.addEventListener('resize', () => {
+        if (vwEl && isInspecting()) vwEl.textContent = window.innerWidth;
+    }, { passive: true });
 
 })();
