@@ -30,7 +30,7 @@ The site is a single HTML file acting as a two-page SPA. Navigation works by tog
 
 **Home sections** (in order): hero (`#top`, with dot-field `<canvas>`), Work (`#work`), Approach/principles (`#approach`), About (`#about`), Contact (`#contact`, inverted panel). Nav links scrollspy against these ids.
 
-**Project options** in `main.js`: `device: true` shows the banner as a phone screenshot on a mat (no cropping); add `solutionImage: 'url'` to show the figure in the Solution section (hidden otherwise). Optional sections `process` (+ `processLede`, `.process__step` items) and `flows` (+ `flowsLede`, `.flow` cards) appear only when defined — any `<section data-optional="key">` is hidden unless the project has that key. Section numbers come from a CSS counter and alt backgrounds are assigned in `navigate()`, so neither is hardcoded. Card thumbnails for phone screenshots use `card__media card__media--device`.
+**Project options** in `main.js`: `device: true` shows the banner as a phone screenshot on a mat (no cropping); add `solutionImage: 'url'` to show the figure in the Solution section (hidden otherwise). Optional sections `process` (+ `processLede`, `.process__step` items) and `flows` (+ `flowsLede`, `.flow` cards) appear only when defined — any `<section data-optional="key">` is hidden unless the project has that key. A `system` section (Design System, + `systemLede`) works the same way, and `researchMedia` adds figures under Research. Both take `.gallery` markup: `<figure class="shot">` (full width; add `shot--half` for two-up, `shot--tall` to center a portrait image on a 4:5 mat) with `.shot__frame > img` and a `figcaption`. Gallery images aren't cropped by CSS, so pre-crop them. Undefined fields are cleared on navigate. Section numbers come from a CSS counter and alt backgrounds are assigned in `navigate()`, so neither is hardcoded. Card thumbnails for phone screenshots use `card__media card__media--device`.
 
 ## CSS system
 
@@ -55,7 +55,7 @@ Projects appear in this order in the grid:
 |-----|-------|------------|
 | `khqauth` | KHQ Authentication (lead project — wide first card) | `assets/khq-auth/cover.jpg` |
 | `mythicaltracker` | Mythical Tracker | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
-| `eatxplore` | ASU Events Page | Unsplash placeholder |
+| `eatxplore` | ASU Events Page | `assets/asu-events/cover.jpg` (also research, design-system and mobile shots in that folder) |
 | `norden` | ASU Rankings Page | Unsplash placeholder |
 | `mirror` | KHQ Side Panel Update | Unsplash placeholder |
 
@@ -93,7 +93,7 @@ If you add or remove a project, update BOTH the outgoing project's `next`/`nextT
 ## Placeholder content still to replace
 
 - **KHQ Authentication images**: `assets/khq-auth/*.jpg` are interim Figma presentation boards (desktop + mobile on a dark mat). Sizes: `cover` 2400×1500 (16:10 — card and banner, edges get cropped), `flow-*` 1200×900 (4:3), `solution` 1600×1200 (shown 16:9). Swap in final exports at the same names/sizes.
-- **Images**: All projects except `mythicaltracker` still use Unsplash URLs. Search for `unsplash.com` in `index.html` and `main.js` to find all occurrences.
+- **Images**: `norden`, `mirror`, `cookfresh`, `rei` and `upup` still use Unsplash URLs. Search for `unsplash.com` in `index.html` and `main.js` to find all occurrences.
 - **Email**: `hello@alexisbojorquez.com` — search and replace everywhere with the real contact email.
 - **Resume**: download link points to `/resume.pdf`; drop the file at `assets/resume.pdf` and update the `href`.
 - **Avatar**: the `.hero__avatar` div shows "AB" initials; swap for an `<img>` tag to use a real photo.

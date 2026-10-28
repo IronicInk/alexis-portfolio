@@ -1544,6 +1544,46 @@ textarea.contact-form__input { resize: vertical; min-height: 110px; }
     color: var(--color-ink-soft);
 }
 
+/* Gallery — captioned case-study figures (images are pre-cropped, so no object-fit) */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap);
+    margin-top: var(--s-6);
+}
+.gallery:empty { display: none; }
+@media (min-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+.shot { margin: 0; grid-column: 1 / -1; }
+.shot--half { grid-column: auto; }
+.shot__frame {
+    border-radius: var(--radius);
+    border: 1px solid var(--color-line);
+    background: var(--color-mat);
+    overflow: hidden;
+}
+.shot__frame img { width: 100%; }
+.shot--tall .shot__frame {
+    aspect-ratio: 4 / 5;
+    padding: var(--s-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shot--tall .shot__frame img {
+    width: auto;
+    max-height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.25);
+}
+.shot figcaption {
+    margin-top: var(--s-2);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    max-width: 72ch;
+}
+
 .solution-image { margin: var(--s-6) 0 var(--s-8); }
 .solution-image img {
     width: 100%;

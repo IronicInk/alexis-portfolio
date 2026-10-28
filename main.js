@@ -166,7 +166,8 @@
             eyebrow: 'UX/UI Design — 2023',
             title: 'ASU Events Page',
             deck: 'A full redesign of Arizona State University\'s live events platform — modernizing the interface, implementing a scalable design system, and rethinking how 5,000+ annual events are discovered and organized. <a class="case__link" href="https://asuevents.asu.edu/" target="_blank" rel="noopener">View live site →</a>',
-            banner: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=85',
+            banner: 'assets/asu-events/cover.jpg',
+            solutionImage: 'assets/asu-events/solution.jpg',
             role: 'Senior UX/UI Designer',
             timeline: '12 weeks · Oct–Dec 2023',
             tools: 'Adobe XD',
@@ -177,7 +178,7 @@
             nextTitle: 'ASU Rankings Page',
             problem: `<p class="case-lede">ASU's events platform was managing over 5,000 annual events through an interface that had fallen behind both its users and its own design system.</p>
 <p>The site struggled on every front: the UI had drifted from the university's updated design standards, event browsing was cluttered and disorganized, and the filter system contained persistent bugs that broke event tagging and discovery. For a platform at the scale of Arizona State University, this friction wasn't just inconvenient — it was actively suppressing event discovery, new submissions, and meaningful campus engagement.</p>`,
-            research: `<p class="case-lede">User interviews and behavioral analysis revealed three critical breakdowns driving poor engagement across the platform.</p>
+            research: `<p class="case-lede">User interviews, heatmaps, CSAT surveys and site analytics revealed three critical breakdowns driving poor engagement across the platform.</p>
 <ol class="insights">
     <li>
         <span class="insights__num">i.</span>
@@ -201,6 +202,14 @@
         </div>
     </li>
 </ol>`,
+            researchMedia: `<figure class="shot">
+    <div class="shot__frame"><img src="assets/asu-events/research-data.jpg" alt="Heatmaps of the legacy events pages, CSAT scores from 2018 to 2021, and Google Analytics demographic data" loading="lazy"></div>
+    <figcaption>Heatmaps across desktop and mobile, four years of CSAT scores and Google Analytics demographics — the baseline the redesign had to beat.</figcaption>
+</figure>
+<figure class="shot">
+    <div class="shot__frame"><img src="assets/asu-events/research-legacy.jpg" alt="The legacy ASU Events search page with a wall of filter chips" loading="lazy"></div>
+    <figcaption>The legacy search: a wall of loosely grouped filter chips and an endless results list, with no clear path from intent to event.</figcaption>
+</figure>`,
             solutionBody: `<p class="case-lede">A structured design process — from user journey mapping to component-level execution — delivered in close collaboration with the engineering team.</p>`,
             features: `<div class="features__item">
     <h3>User journey mapping</h3>
@@ -214,6 +223,23 @@
     <h3>Design system alignment</h3>
     <p>Every component was built to spec within ASU's updated design system, ensuring consistency across the platform and a clean handoff to engineering for implementation.</p>
 </div>`,
+            systemLede: `<p class="case-lede">Every piece of the redesign was grounded in ASU's brand standards and documented down to the pixel, so engineering could build it exactly as designed.</p>`,
+            system: `<figure class="shot">
+    <div class="shot__frame"><img src="assets/asu-events/branding.jpg" alt="ASU brand foundations: Arial type guidance, primary, secondary, grayscale and system colors, and character styles" loading="lazy"></div>
+    <figcaption>Brand foundations — Arial as the web font, maroon and gold primaries, secondary and system colors, and a type scale from 64pt headings to 12pt body.</figcaption>
+</figure>
+<figure class="shot">
+    <div class="shot__frame"><img src="assets/asu-events/card-spec.jpg" alt="Event card component with spacing specs and card rules" loading="lazy"></div>
+    <figcaption>The event card — a gold rule under the image, a three-line title truncation, date, time and location, and a 24 / 16 / 8px spacing system.</figcaption>
+</figure>
+<figure class="shot shot--half shot--tall">
+    <div class="shot__frame"><img src="assets/asu-events/components.png" alt="Annotated filter panel, date picker, and card and list event components" loading="lazy"></div>
+    <figcaption>Annotated filters, date picker and card / list variants — documenting states and behavior for handoff.</figcaption>
+</figure>
+<figure class="shot shot--half shot--tall">
+    <div class="shot__frame"><img src="assets/asu-events/mobile.jpg" alt="The redesigned ASU Events page on mobile" loading="lazy"></div>
+    <figcaption>On mobile, search leads and filters collapse into accordions with a single Apply action.</figcaption>
+</figure>`,
             resultsLede: `<p class="case-lede">The redesign launched at the end of 2023 to an overwhelmingly positive reception across the ASU community.</p>`,
             results: `<div class="results__item"><span class="results__num">88%</span><p>User approval of the redesigned experience</p></div>
 <div class="results__item"><span class="results__num">5×</span><p>Reduction in event overlap and interface clutter</p></div>
@@ -603,7 +629,7 @@
                 if (key === 'banner' || key === 'solutionImage') {
                     if (p[key]) el.src = p[key];
                 }
-                else if (p[key] !== undefined) el.innerHTML = p[key];
+                else el.innerHTML = p[key] ?? ''; // clear fields the previous project set
             });
             const titleEl = document.querySelector('[data-field="title"]');
             const banner = document.getElementById('case-banner');
