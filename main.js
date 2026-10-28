@@ -223,6 +223,7 @@
     <h3>Design system alignment</h3>
     <p>Every component was built to spec within ASU's updated design system, ensuring consistency across the platform and a clean handoff to engineering for implementation.</p>
 </div>`,
+            systemTitle: 'Design System',
             systemLede: `<p class="case-lede">Every piece of the redesign was grounded in ASU's brand standards and documented down to the pixel, so engineering could build it exactly as designed.</p>`,
             system: `<figure class="shot">
     <div class="shot__frame"><img src="assets/asu-events/branding.jpg" alt="ASU brand foundations: Arial type guidance, primary, secondary, grayscale and system colors, and character styles" loading="lazy"></div>
@@ -249,7 +250,7 @@
             eyebrow: 'UX/UI Design — 2023',
             title: 'ASU Rankings Page',
             deck: 'A complete redesign of Arizona State University\'s rankings page — rebuilding its card components from the ground up to authentically celebrate over a decade of breakthrough achievements, including ASU\'s sustained #1 ranking in innovation.',
-            banner: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=2000&q=85',
+            banner: 'assets/asu-rankings/cover.jpg',
             role: 'Senior UX/UI Designer',
             timeline: '4 weeks · 2023',
             tools: 'Adobe XD',
@@ -297,6 +298,20 @@
     <h3>Focused content per card</h3>
     <p>Each card was edited down to its single most compelling data point, reducing cognitive load and letting individual achievements land with the weight they actually deserve.</p>
 </div>`,
+            systemTitle: 'The Component',
+            systemLede: `<p class="case-lede">One rankings card, two sides — a bold ranking graphic up front and the full story a tap away, laid out in a four-up grid on desktop and a single column on mobile.</p>`,
+            system: `<figure class="shot shot--inset">
+    <div class="shot__frame"><img src="assets/asu-rankings/component-page.png" alt="The redesigned ASU rankings page on desktop with a four-column grid of ranking cards, some flipped to show details" loading="lazy"></div>
+    <figcaption>On the page — cards sit in a four-column grid; flipped cards reveal the ranking story, a citation and a Read more link without leaving the page.</figcaption>
+</figure>
+<figure class="shot shot--half shot--tall">
+    <div class="shot__frame"><img src="assets/asu-rankings/component-states.png" alt="A ranking card shown front and back: the #1 in the U.S. for global impact graphic and the No. 1 in U.S. for innovation details with share links" loading="lazy"></div>
+    <figcaption>Back and forth — the graphic side carries the headline number; the detail side holds the title, description, Read more and share links.</figcaption>
+</figure>
+<figure class="shot shot--half shot--tall">
+    <div class="shot__frame"><img src="assets/asu-rankings/mobile.png" alt="The ASU rankings page on mobile with a single-column ranking card" loading="lazy"></div>
+    <figcaption>On mobile, cards stack to a single column and open with a tap — no hover required.</figcaption>
+</figure>`,
             resultsLede: `<p class="case-lede">Post-launch usability testing showed measurable improvement across every metric the team tracked.</p>`,
             results: `<div class="results__item"><span class="results__num">45%</span><p>Faster task completion when locating a specific ranking</p></div>
 <div class="results__item"><span class="results__num">63%</span><p>Of testers rated the updated navigation as significantly easier to use</p></div>
