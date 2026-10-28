@@ -31,6 +31,99 @@
     }
 
     /* =============================================================
+       DEEP DIVE — tabbed galleries (one tab per flow; map + screens)
+       ============================================================= */
+    function renderDive(tabs) {
+        const shot = s => `<figure class="shot shot--half">
+    <div class="shot__frame"><img src="${s.src}" alt="${s.alt}" loading="lazy"></div>
+    <figcaption>${s.caption}</figcaption>
+</figure>`;
+        const buttons = tabs.map((t, i) => `<button class="dive__tab" role="tab" id="dive-tab-${t.key}" aria-controls="dive-${t.key}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${t.label}</button>`).join('');
+        const panels = tabs.map((t, i) => `<div class="dive__panel" role="tabpanel" id="dive-${t.key}" aria-labelledby="dive-tab-${t.key}"${i === 0 ? '' : ' hidden'}>
+    <p class="dive__lede">${t.lede}</p>
+    <div class="gallery">
+        <figure class="shot shot--map">
+            <div class="shot__frame"><img src="${t.map}" alt="${t.label} flow map in Figma" loading="lazy"></div>
+            <figcaption>${t.mapCaption}</figcaption>
+        </figure>
+        ${t.shots.map(shot).join('\n')}
+    </div>
+</div>`).join('');
+        return `<div class="dive"><div class="dive__tabs" role="tablist" aria-label="Flow deep dives">${buttons}</div>${panels}</div>`;
+    }
+
+    const khqDive = [
+        {
+            key: 'create-profile', label: 'Create profile', map: 'assets/khq-auth/create-profile-map.jpg',
+            lede: 'Six sub-flows take a new customer from a single link on sign-in to a verified profile.',
+            mapCaption: 'New user, password strength meter, change email, change mobile number, create profile errors and social registration. Desktop screens sit above their mobile counterparts.',
+            shots: [
+                { src: 'assets/khq-auth/cp-new-user.jpg', alt: 'Sign-in screen with the First time? Create profile link', caption: 'New user: the journey starts from a single "First time? Create profile" link on sign-in.' },
+                { src: 'assets/khq-auth/cp-password-strength.jpg', alt: 'Create your profile form with a strong password indicator', caption: 'Password strength: a live meter and requirement tooltip move users from empty to strong without guesswork.' },
+                { src: 'assets/khq-auth/cp-change-email.jpg', alt: 'Verify your email screen with a code entry and a Change link', caption: 'Change email: a mistyped address can be fixed mid-verification instead of starting over.' },
+                { src: 'assets/khq-auth/cp-change-mobile.jpg', alt: 'Verify your mobile number screen with a code entry and a Change link', caption: 'Change mobile number: the same recovery pattern, applied to SMS verification.' },
+                { src: 'assets/khq-auth/cp-errors.jpg', alt: 'Create profile form with an error banner saying a profile with this email already exists', caption: 'Errors: invalid inputs, an email or mobile already in use, and generic failures each get a specific message and a next step.' },
+                { src: 'assets/khq-auth/cp-social.jpg', alt: 'Sign in with Google account chooser for KUBRA', caption: 'Social registration: Google and Apple sign-up, including the handoff to the provider\'s account chooser.' }
+            ]
+        },
+        {
+            key: 'sign-in', label: 'Sign in', map: 'assets/khq-auth/map-sign-in.jpg',
+            lede: 'Eight scenarios cover how returning customers get in: with a code, with a password (MFA on or off), and with Google or Apple.',
+            mapCaption: 'Sign in with code, password with MFA on and off, change, sign-in configurations, sign-in errors, and Apple and Google social sign-in.',
+            shots: [
+                { src: 'assets/khq-auth/si-config.jpg', alt: 'Sign in screen with email field, Google and Apple buttons, and guest payment', caption: 'Configurations: one sign-in page that adapts to which methods each utility turns on.' },
+                { src: 'assets/khq-auth/si-code.jpg', alt: 'Choose a sign-in method screen with Email me a one-time code selected', caption: 'Sign in with code: a one-time code by email, no password required.' },
+                { src: 'assets/khq-auth/si-password.jpg', alt: 'Choose a sign-in method screen moving to Enter password', caption: 'Password: the same chooser, one tap away, for customers who prefer a password.' },
+                { src: 'assets/khq-auth/si-social.jpg', alt: 'Sign in screen with the pointer on Sign in with Apple', caption: 'Social sign-in: Google and Apple sit beside the email field as equal choices.' }
+            ]
+        },
+        {
+            key: 'alternative', label: 'Alternative methods', map: 'assets/khq-auth/map-alternative.jpg',
+            lede: 'Single sign-on (SAML) lets a utility send its customers through its own identity provider.',
+            mapCaption: 'SSO / SAML: all methods, SSO first, SSO with guest payment, and SSO only, plus the redirect to the utility.',
+            shots: [
+                { src: 'assets/khq-auth/am-sso-email.jpg', alt: 'Sign in screen with ABC Energy SSO alongside email, Google and Apple', caption: 'All methods: SSO joins email and social sign-in on the same page.' },
+                { src: 'assets/khq-auth/am-sso-first.jpg', alt: 'Sign in screen led by an ABC Energy SSO button', caption: 'SSO first: the utility\'s own sign-in becomes the primary action.' },
+                { src: 'assets/khq-auth/am-sso-only.jpg', alt: 'Sign in screen with only the ABC Energy SSO button', caption: 'SSO only: for utilities that manage every identity themselves.' },
+                { src: 'assets/khq-auth/am-sso-redirect.jpg', alt: 'Flow board showing the user directed to ABC Energy', caption: 'The handoff: customers are redirected to the utility\'s sign-in and returned to their product.' }
+            ]
+        },
+        {
+            key: 'code-errors', label: 'Code errors', map: 'assets/khq-auth/map-code-errors.jpg',
+            lede: 'Wrong, expired and resent codes each get a clear message and an obvious way forward.',
+            mapCaption: 'Wrong code, expired code and resend code, on desktop and mobile.',
+            shots: [
+                { src: 'assets/khq-auth/ce-wrong.jpg', alt: 'Verify it\'s you screen with a verification failed banner', caption: 'Wrong code: the banner says what failed and the fields reset for another try.' },
+                { src: 'assets/khq-auth/ce-expired.jpg', alt: 'Verify it\'s you screen with a code expired banner and resend link', caption: 'Expired code: resending is offered right inside the message.' },
+                { src: 'assets/khq-auth/ce-resent.jpg', alt: 'Verify it\'s you screen with a code resent toast', caption: 'Resend: a quiet toast confirms the new code is on its way.' },
+                { src: 'assets/khq-auth/ce-system.jpg', alt: 'Verify it\'s you screen with a system error banner', caption: 'System error: when it\'s not the customer\'s fault, the copy says so.' }
+            ]
+        },
+        {
+            key: 'mfa', label: 'MFA / 2-Factor', map: 'assets/khq-auth/map-mfa.jpg',
+            lede: 'A second step that protects the account without getting in the customer\'s way.',
+            mapCaption: 'MFA on with one contact, MFA on with two contacts, try another method, voice verification and remember me.',
+            shots: [
+                { src: 'assets/khq-auth/mfa-start.jpg', alt: 'Sign in screen with an email entered', caption: 'It starts like any sign-in: MFA only appears once it\'s needed.' },
+                { src: 'assets/khq-auth/mfa-password.jpg', alt: 'Choose a sign-in method screen with a password entered', caption: 'Password first, then a second factor for accounts with MFA turned on.' },
+                { src: 'assets/khq-auth/mfa-verify.jpg', alt: 'Verify it\'s you screen with a code entry and Try another method link', caption: 'Try another method: customers with two contacts can switch where the code goes.' },
+                { src: 'assets/khq-auth/mfa-remember.jpg', alt: 'Verify it\'s you screen with Trust this device for 30 days checked', caption: 'Remember me: trusting a device skips the second step for 30 days.' }
+            ]
+        },
+        {
+            key: 'forgot-password', label: 'Forgot password', map: 'assets/khq-auth/map-forgot-password.jpg',
+            lede: 'Recovery that stays secure without becoming a dead end.',
+            mapCaption: 'Forgot password, plus its errors: a previously used password, a compromised password, and empty or mismatched fields.',
+            shots: [
+                { src: 'assets/khq-auth/fp-start.jpg', alt: 'Choose a sign-in method screen with the pointer on Forgot password', caption: 'Entry: Forgot password sits right below the sign-in action.' },
+                { src: 'assets/khq-auth/fp-new-password.jpg', alt: 'New password form with a password requirements tooltip', caption: 'New password: requirements are explained up front, not after a failed attempt.' },
+                { src: 'assets/khq-auth/fp-error.jpg', alt: 'New password form with a choose a different password error banner', caption: 'Errors: a known-compromised password is blocked with a plain-language reason.' },
+                { src: 'assets/khq-auth/fp-success.jpg', alt: 'Sign in screen with a password reset success toast', caption: 'Done: customers land back on sign-in with a confirmation toast.' }
+            ]
+        }
+    ];
+
+    /* =============================================================
        PROJECT DATA
        ============================================================= */
     const projects = {
@@ -115,6 +208,7 @@
         <span class="flow__num">01</span>
         <h3>Create profile</h3>
         <p>Guiding new customers from their first details to a working profile.</p>
+        <ul class="flow__scenarios"><li>New user</li><li>Password strength</li><li>Change email</li><li>Change mobile</li><li>Errors</li><li>Google / Apple</li></ul>
     </div>
 </article>
 <article class="flow">
@@ -157,6 +251,9 @@
         <p>Helping customers safely regain access and get back to their account.</p>
     </div>
 </article>`,
+            systemTitle: 'Deep Dive',
+            systemLede: `<p class="case-lede">Every flow group branches into its own set of scenarios, each designed for desktop and mobile before it was marked done by design. Pick a flow to see its map and key screens.</p>`,
+            system: renderDive(khqDive),
             resultsLede: `<p class="case-lede">The complete authentication flow was reviewed end-to-end and presented to the project manager, product owner and development team.</p>`,
             results: `<div class="results__item"><span class="results__num">6</span><p>Flow groups covering every route from sign-in to the product</p></div>
 <div class="results__item"><span class="results__num">2</span><p>Products — MyHQ+ and EZ-PAY+ — served by one consistent authentication experience</p></div>
@@ -697,6 +794,30 @@
             anchor: target.dataset.anchor,
             project: target.dataset.project
         });
+    });
+
+    /* Deep dive tabs — markup is injected per project, so delegate */
+    function selectDiveTab(tab) {
+        const list = tab.closest('.dive__tabs');
+        list.querySelectorAll('.dive__tab').forEach(t => {
+            const on = t === tab;
+            t.setAttribute('aria-selected', on);
+            t.tabIndex = on ? 0 : -1;
+            document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+    }
+    document.addEventListener('click', (e) => {
+        const tab = e.target.closest('.dive__tab');
+        if (tab) selectDiveTab(tab);
+    });
+    document.addEventListener('keydown', (e) => {
+        const tab = e.target.closest && e.target.closest('.dive__tab');
+        if (!tab || (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft')) return;
+        const tabs = [...tab.parentElement.children];
+        const next = tabs[(tabs.indexOf(tab) + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+        selectDiveTab(next);
+        next.focus();
+        e.preventDefault();
     });
 
     document.querySelectorAll('[data-anchor]:not([data-nav])').forEach(btn => {
