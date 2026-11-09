@@ -54,11 +54,11 @@ Projects appear in this order in the grid:
 | Key | Title | Card image |
 |-----|-------|------------|
 | `khqauth` | KHQ Authentication (lead project — wide first card) | `assets/khq-auth/cover.jpg` |
+| `cookfresh` | Config HQ — Workspaces | `assets/config-hq/cover.jpg` (tabbed deep dive `chqDive`; screens from Figma file `Ds15dFuO1QFcchspVQ2Wo9`, section 18:4630) |
 | `eatxplore` | ASU Events Page | `assets/asu-events/cover.jpg` (also research, design-system and mobile shots in that folder) |
 | `norden` | ASU Rankings Page | `assets/asu-rankings/cover.jpg` (plus component screenshots in that folder) |
-| `mythicaltracker` | Mythical Tracker | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
+| `mythicaltracker` | Mythical Tracker (last visible card) | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
 | `mirror` | KHQ Side Panel Update (hidden) | Unsplash placeholder |
-| `cookfresh` | Config HQ — Workspaces | `assets/config-hq/cover.jpg` (tabbed deep dive `chqDive`; screens from Figma file `Ds15dFuO1QFcchspVQ2Wo9`, section 18:4630) |
 | `rei` | Storm Center 5 — Wind Icon (hidden) | Unsplash placeholder |
 | `upup` | MyHQ+ & EZ-PAY+ — Color Label Behavior (hidden) | Unsplash placeholder |
 
@@ -66,9 +66,9 @@ The `Featured` count in the `.work__subhead` is hardcoded — update it when car
 
 ### Next/prev chain (must stay consistent)
 ```
-khqauth → eatxplore → norden → mythicaltracker → mirror → cookfresh → rei → upup → khqauth
+khqauth → cookfresh → eatxplore → norden → mythicaltracker → khqauth
 ```
-**Currently hidden:** `mirror`, `rei` and `upup` cards carry the `hidden` attribute and are skipped in the live chain, which is `khqauth → eatxplore → norden → mythicaltracker → cookfresh → khqauth`. To bring them back, remove `hidden` from their cards and restore `mythicaltracker.next = 'mirror'` and `cookfresh.next = 'rei'`.
+**Currently hidden:** `mirror`, `rei` and `upup` cards carry the `hidden` attribute and are left out of the chain (their own `next` values are stale). To bring them back, remove `hidden` from their cards and splice them into the loop.
 
 If you add or remove a project, update BOTH the outgoing project's `next`/`nextTitle` AND the incoming project's `next`/`nextTitle` to keep the loop intact.
 

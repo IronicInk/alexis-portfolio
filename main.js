@@ -203,8 +203,8 @@
             client: 'KUBRA',
             team: 'UX Designer, UI Designer, Project Manager, Product Owner, Developers',
             platform: 'Web — MyHQ+ &amp; EZ-PAY+',
-            next: 'eatxplore',
-            nextTitle: 'ASU Events Page',
+            next: 'cookfresh',
+            nextTitle: 'Config HQ — Workspaces',
             problem: `<p class="case-lede">Sign-in is the front door to MyHQ+ and EZ-PAY+ — the first screen every customer sees, and the one place where a single point of friction can stop them from ever reaching their account.</p>
 <p>Authentication is never one screen. Between the sign-in page and the product sits a web of branching paths: creating a new profile, choosing an alternative way in, verifying identity with a second factor, recovering from a mistyped or expired code, and resetting a forgotten password. Each path had to feel like part of the same experience, follow KUBRA's design system, and hold up across two products — while staying realistic for engineering to build. The UX structure defined <em>where</em> users could go; my job was to define what every step of that journey would look and feel like.</p>`,
             processLede: `<p class="case-lede">The work moved from handoff to high-fidelity flows in four stages — each one tightening the connection between design intent, user expectations and what engineering could deliver.</p>`,
@@ -547,8 +547,8 @@
             client: 'KUBRA',
             team: 'UX Designer, UI Designer, Project Manager, Product Owner, Developers',
             platform: 'Desktop web app — ConfigHQ',
-            next: 'khqauth', // rei, upup and mirror are hidden for now — restore 'rei' when they return
-            nextTitle: 'KHQ Authentication',
+            next: 'eatxplore',
+            nextTitle: 'ASU Events Page',
             problem: `<p class="case-lede">ConfigHQ is where KUBRA teams set up the experience each utility client's customers will see. Spaces needed a dependable place for that setup work: somewhere to build a configuration, try alternatives and lock in a finished version without risking the one already approved.</p>
 <p>That place became the <strong>workspace</strong>. Each one holds a client's image resources, colors and supported languages. A team member might create a workspace for ABC Energy, duplicate it to show the client an alternate color scheme, then save the approved version as a snapshot. Each of those steps has to be clear, safe and hard to get wrong, because the people doing it are configuring a live client's brand.</p>`,
             processLede: `<p class="case-lede">The work moved from the UX structure to a complete set of flows ready for development, each one marked "Done by design" in Figma.</p>`,
@@ -741,8 +741,8 @@
             client: 'Ironic Ink Designs LLC',
             team: 'Solo project',
             platform: 'Android (Google Play) &amp; Web (PWA)',
-            next: 'cookfresh', // was 'mirror' — hidden for now
-            nextTitle: 'Config HQ — Workspaces',
+            next: 'khqauth',
+            nextTitle: 'KHQ Authentication',
             problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
 <p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
             research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>
