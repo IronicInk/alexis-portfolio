@@ -54,9 +54,9 @@ Projects appear in this order in the grid:
 | Key | Title | Card image |
 |-----|-------|------------|
 | `khqauth` | KHQ Authentication (lead project — wide first card) | `assets/khq-auth/cover.jpg` |
-| `mythicaltracker` | Mythical Tracker | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
 | `eatxplore` | ASU Events Page | `assets/asu-events/cover.jpg` (also research, design-system and mobile shots in that folder) |
 | `norden` | ASU Rankings Page | `assets/asu-rankings/cover.jpg` (plus component screenshots in that folder) |
+| `mythicaltracker` | Mythical Tracker | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
 | `mirror` | KHQ Side Panel Update | Unsplash placeholder |
 
 ### Additional work (`#cards-additional`)
@@ -69,7 +69,7 @@ Projects appear in this order in the grid:
 
 ### Next/prev chain (must stay consistent)
 ```
-khqauth → mythicaltracker → eatxplore → norden → mirror → cookfresh → rei → upup → khqauth
+khqauth → eatxplore → norden → mythicaltracker → mirror → cookfresh → rei → upup → khqauth
 ```
 If you add or remove a project, update BOTH the outgoing project's `next`/`nextTitle` AND the incoming project's `next`/`nextTitle` to keep the loop intact.
 

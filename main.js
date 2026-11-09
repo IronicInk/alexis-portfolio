@@ -139,8 +139,8 @@
             client: 'KUBRA',
             team: 'UX Designer, UI Designer, Project Manager, Product Owner, Developers',
             platform: 'Web — MyHQ+ &amp; EZ-PAY+',
-            next: 'mythicaltracker',
-            nextTitle: 'Mythical Tracker',
+            next: 'eatxplore',
+            nextTitle: 'ASU Events Page',
             problem: `<p class="case-lede">Sign-in is the front door to MyHQ+ and EZ-PAY+ — the first screen every customer sees, and the one place where a single point of friction can stop them from ever reaching their account.</p>
 <p>Authentication is never one screen. Between the sign-in page and the product sits a web of branching paths: creating a new profile, choosing an alternative way in, verifying identity with a second factor, recovering from a mistyped or expired code, and resetting a forgotten password. Each path had to feel like part of the same experience, follow KUBRA's design system, and hold up across two products — while staying realistic for engineering to build. The UX structure defined <em>where</em> users could go; my job was to define what every step of that journey would look and feel like.</p>`,
             processLede: `<p class="case-lede">The work moved from handoff to high-fidelity flows in four stages — each one tightening the connection between design intent, user expectations and what engineering could deliver.</p>`,
@@ -354,8 +354,8 @@
             client: 'Arizona State University',
             team: 'Solo project',
             platform: 'Website &amp; Mobile',
-            next: 'mirror',
-            nextTitle: 'KHQ Side Panel Update',
+            next: 'mythicaltracker',
+            nextTitle: 'Mythical Tracker',
             problem: `<p class="case-lede">ASU's rankings page relied on aging card components that had become a source of friction rather than institutional pride.</p>
 <p>Cards depended on complex hover animations to reveal key information — a pattern that broke entirely on touch devices and caused desktop users to lose context whenever the cursor drifted. Each card held minimal content, leaving major achievements undersold. With 20+ cards crowding a single page and no visual hierarchy to guide the eye, users struggled to identify landmarks like ASU's decade-long <strong>#1 Innovation ranking</strong> among the noise. The component had also accumulated inconsistencies that made it difficult to scale or maintain.</p>`,
             research: `<p class="case-lede">Usability testing and interviews with students, faculty, and prospective families surfaced three consistent pain points with the existing card interface.</p>
@@ -622,8 +622,8 @@
             client: 'Ironic Ink Designs LLC',
             team: 'Solo project',
             platform: 'Android (Google Play) &amp; Web (PWA)',
-            next: 'eatxplore',
-            nextTitle: 'ASU Events Page',
+            next: 'mirror',
+            nextTitle: 'KHQ Side Panel Update',
             problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
 <p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
             research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>
