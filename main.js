@@ -42,10 +42,10 @@
         const panels = tabs.map((t, i) => `<div class="dive__panel" role="tabpanel" id="dive-${t.key}" aria-labelledby="dive-tab-${t.key}"${i === 0 ? '' : ' hidden'}>
     <p class="dive__lede">${t.lede}</p>
     <div class="gallery">
-        <figure class="shot shot--map">
+        ${t.map ? `<figure class="shot shot--map">
             <div class="shot__frame"><img src="${t.map}" alt="${t.label} flow map in Figma" loading="lazy"></div>
             <figcaption>${t.mapCaption}</figcaption>
-        </figure>
+        </figure>` : ''}
         ${t.shots.map(shot).join('\n')}
     </div>
 </div>`).join('');
@@ -119,6 +119,70 @@
                 { src: 'assets/khq-auth/fp-new-password.jpg', alt: 'New password form with a password requirements tooltip', caption: 'New password: requirements are explained up front, not after a failed attempt.' },
                 { src: 'assets/khq-auth/fp-error.jpg', alt: 'New password form with a choose a different password error banner', caption: 'Errors: a known-compromised password is blocked with a plain-language reason.' },
                 { src: 'assets/khq-auth/fp-success.jpg', alt: 'Sign in screen with a password reset success toast', caption: 'Done: customers land back on sign-in with a confirmation toast.' }
+            ]
+        }
+    ];
+
+    const chq = 'assets/config-hq/';
+    const chqDive = [
+        {
+            key: 'chq-create', label: 'Create',
+            lede: 'From an empty Space to a first workspace, with the details it needs to get started.',
+            shots: [
+                { src: chq + 'cr-empty.jpg', alt: 'Empty Workspaces page with a Create workspace button', caption: 'Empty state: a friendly illustration and a single next step when a Space has no workspaces yet.' },
+                { src: chq + 'cr-details.jpg', alt: 'Create workspace side panel with name, description and supported languages', caption: 'A side panel keeps the list in view while the user names the workspace and picks its languages. English is always on.' },
+                { src: chq + 'cr-success.jpg', alt: 'New workspace selected in the list with a success banner and its details', caption: 'Success: the new workspace opens with its sections listed and "Incomplete" badges showing what is still missing.' },
+                { src: chq + 'cr-exists.jpg', alt: 'Create workspace panel with a duplicate-name error', caption: 'Names must be unique, so the error appears inline and nothing the user typed is lost.' }
+            ]
+        },
+        {
+            key: 'chq-edit', label: 'Edit',
+            lede: 'Updating a workspace without losing its place in the list.',
+            shots: [
+                { src: chq + 'ed-start.jpg', alt: 'Workspace details with the Edit workspace tooltip', caption: 'Edit sits beside the details it changes, with a tooltip naming the action.' },
+                { src: chq + 'ed-name.jpg', alt: 'Edit workspace panel with the name field focused', caption: 'The same panel as Create, so editing needs nothing new to learn.' },
+                { src: chq + 'ed-save.jpg', alt: 'Edit workspace panel with an updated name and description', caption: 'Save stays inactive until the form is ready, so it is impossible to submit something half-finished.' },
+                { src: chq + 'ed-success.jpg', alt: 'Workspace list showing the renamed workspace and a success banner', caption: 'The renamed workspace stays selected, and a banner confirms the update.' }
+            ]
+        },
+        {
+            key: 'chq-duplicate', label: 'Duplicate',
+            lede: 'Copying a workspace to try a variation, such as an alternate color scheme for a client demo.',
+            shots: [
+                { src: chq + 'du-menu.jpg', alt: 'Workspace overflow menu with Generate snapshot, Duplicate and Delete', caption: 'Duplicate, Delete and Generate snapshot are grouped together in one overflow menu.' },
+                { src: chq + 'du-modal.jpg', alt: 'Duplicate workspace modal with name and description fields', caption: 'A short modal asks for just a name and an optional description.' },
+                { src: chq + 'du-exists.jpg', alt: 'Duplicate workspace modal with a name-already-exists error', caption: 'The same unique-name rule applies here, with the same error message as Create.' },
+                { src: chq + 'du-error.jpg', alt: 'System error banner after a failed duplicate', caption: 'System error: a page-level banner explains what failed and asks the user to try again.' }
+            ]
+        },
+        {
+            key: 'chq-delete', label: 'Delete',
+            lede: 'Removing a workspace on purpose, and only on purpose.',
+            shots: [
+                { src: chq + 'de-confirm.jpg', alt: 'Delete workspace confirmation dialog', caption: 'The confirmation names the workspace and says plainly that it cannot be restored.' },
+                { src: chq + 'de-success.jpg', alt: 'Workspace list after deletion with a success banner', caption: 'If other workspaces remain, the list updates and the detail panel asks the user to select one.' },
+                { src: chq + 'de-empty.jpg', alt: 'Empty Workspaces page after the last workspace is deleted', caption: 'If none remain, the Space returns to its empty state, ready for a fresh start.' },
+                { src: chq + 'de-error.jpg', alt: 'System error banner after a failed delete', caption: 'System error: nothing is removed, and the banner says so.' }
+            ]
+        },
+        {
+            key: 'chq-snapshot', label: 'Snapshot',
+            lede: 'Saving a finished workspace as a fixed version.',
+            shots: [
+                { src: chq + 'sn-modal.jpg', alt: 'Generate snapshot modal with name and description', caption: 'The user names the version they are saving.' },
+                { src: chq + 'sn-exists.jpg', alt: 'Generate snapshot modal with a name-already-exists error', caption: 'Snapshot names must be unique too, so versions are never ambiguous.' },
+                { src: chq + 'sn-incomplete.jpg', alt: 'Error banner explaining the snapshot cannot be generated because sections are incomplete', caption: 'An incomplete workspace cannot be saved as a snapshot. The banner explains why and points to the sections marked "Incomplete".' },
+                { src: chq + 'sn-success.jpg', alt: 'Snapshot generated successfully banner with a Go to snapshot link', caption: 'Success: the banner links straight to the new snapshot.' }
+            ]
+        },
+        {
+            key: 'chq-search', label: 'Search & filter',
+            lede: 'Finding a workspace quickly as a Space grows.',
+            shots: [
+                { src: chq + 'sf-search.jpg', alt: 'Workspace search returning a matching result', caption: 'Search filters the list as the user types.' },
+                { src: chq + 'sf-none.jpg', alt: 'Workspace search with no results', caption: 'No results: a clear message instead of a blank list.' },
+                { src: chq + 'sf-date.jpg', alt: 'Filter by date panel with a start-date calendar open', caption: 'Filter by date: a start and end date narrow the list by last-updated date.' },
+                { src: chq + 'sf-filter-none.jpg', alt: 'Filtered list with no matching workspaces', caption: 'An empty filter result uses the same pattern as an empty search.' }
             ]
         }
     ];
@@ -426,7 +490,7 @@
             team: 'Visual Designer, UX Researcher, Director, PM, Developer',
             platform: 'Desktop Web Software',
             next: 'cookfresh',
-            nextTitle: 'Config HQ — IVR Instances',
+            nextTitle: 'Config HQ — Workspaces',
             problem: `<p class="case-lede">KHQ's side panel used a non-standard toggle button positioned between the panel's inner and outer boundaries — an unusual pattern that created compounding problems across design, development, and usability.</p>
 <p>For users, the button's placement was unintuitive and inconsistent with established UI conventions, making the panel difficult to discover and interact with confidently. For engineering, the in-between positioning required complex logic to maintain correct toggle behavior as the panel changed state — a persistent maintenance burden. For the design system, the atypical placement made it nearly impossible to define repeatable patterns around the component, blocking meaningful system-level work downstream. All three problems pointed to the same root cause: a toggle that didn't belong where it was.</p>`,
             research: `<p class="case-lede">The goal was to validate the best approach for modernizing the panel through lightweight testing with internal participants — identifying which interaction patterns, icon styles, and copy choices best matched user expectations.</p>
@@ -473,85 +537,140 @@
         },
         cookfresh: {
             eyebrow: 'UI Design — 2026',
-            title: 'Config HQ — IVR Instances',
-            deck: 'A UI design initiative to improve IVR+ configuration management within ConfigHQ — centralizing workspace-level settings, establishing proper placement for transfer configurations, and introducing instance-level maintenance controls for better operational oversight.',
-            banner: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=2000&q=85',
+            title: 'Config HQ — Workspaces',
+            deck: 'Designing how KUBRA teams build and manage client workspaces in ConfigHQ. A workspace is where a utility\'s logo, colors and supported languages are set up. Teams can duplicate it to try alternatives, then save a finished version as a snapshot once every section is complete.',
+            banner: 'assets/config-hq/cover.jpg',
+            solutionImage: 'assets/config-hq/solution.jpg',
             role: 'UI Designer',
             timeline: '2026',
-            tools: 'Figma',
+            tools: 'Figma · KUBRA Design System',
             client: 'KUBRA',
-            team: 'UI Designer, UX Researcher, PM, Developer',
-            platform: 'Desktop Web Software',
+            team: 'UX Designer, UI Designer, Project Manager, Product Owner, Developers',
+            platform: 'Desktop web app — ConfigHQ',
             next: 'khqauth', // rei, upup and mirror are hidden for now — restore 'rei' when they return
             nextTitle: 'KHQ Authentication',
-            problem: `<p class="case-lede">IVR+ configuration within ConfigHQ had grown fragmented — settings, transfer rules, and instance controls were scattered across the system with no clear ownership or hierarchy.</p>
-<p>Four specific gaps were driving the problem:</p>
-<ol class="insights" style="list-style:none;padding:0;margin:var(--s-4) 0 0;display:flex;flex-direction:column;gap:var(--s-3);">
-    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
-        <span class="insights__num">1.</span>
-        <div><strong>General settings</strong> — language defaults and messaging were managed at the instance level, forcing repetitive configuration across every IVR instance instead of once at the workspace.</div>
-    </li>
-    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
-        <span class="insights__num">2.</span>
-        <div><strong>Transfer configurations</strong> — transfer-in and transfer-out rules had no defined home, creating inconsistency in how call routing was set up and audited.</div>
-    </li>
-    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
-        <span class="insights__num">3.</span>
-        <div><strong>Maintenance mode</strong> — no instance-level control existed for planned downtime, leaving no way to gracefully disable authentication and payment flows when an IVR went offline.</div>
-    </li>
-    <li style="display:grid;grid-template-columns:40px 1fr;gap:var(--s-2);padding-top:var(--s-3);border-top:1px solid var(--color-line);">
-        <span class="insights__num">4.</span>
-        <div><strong>Phone number provisioning</strong> — there was no dedicated section for managing phone numbers or IVR availability, making operational control inconsistent and difficult to audit.</div>
-    </li>
-</ol>`,
-            research: `<p class="case-lede">Rather than traditional usability testing, this project was driven by configuration analysis — mapping where settings lived, where they belonged, and what was missing entirely. Four key areas were defined.</p>
+            problem: `<p class="case-lede">ConfigHQ is where KUBRA teams set up the experience each utility client's customers will see. Spaces needed a dependable place for that setup work: somewhere to build a configuration, try alternatives and lock in a finished version without risking the one already approved.</p>
+<p>That place became the <strong>workspace</strong>. Each one holds a client's image resources, colors and supported languages. A team member might create a workspace for ABC Energy, duplicate it to show the client an alternate color scheme, then save the approved version as a snapshot. Each of those steps has to be clear, safe and hard to get wrong, because the people doing it are configuring a live client's brand.</p>`,
+            processLede: `<p class="case-lede">The work moved from the UX structure to a complete set of flows ready for development, each one marked "Done by design" in Figma.</p>`,
+            process: `<li class="process__step">
+    <span class="process__label">Step 01</span>
+    <h3>Handoff</h3>
+    <p>Started from the UX structure for Spaces and turned it into high-fidelity screens using KUBRA's design system.</p>
+</li>
+<li class="process__step">
+    <span class="process__label">Step 02</span>
+    <h3>Mapping the lifecycle</h3>
+    <p>Broke the work into the full life of a workspace (create, edit, duplicate, delete, snapshot, search and filter) and mapped every branch with functionality notes.</p>
+</li>
+<li class="process__step">
+    <span class="process__label">Step 03</span>
+    <h3>Designing every state</h3>
+    <p>Designed the happy path and the edge cases for each flow: empty states, name conflicts, incomplete workspaces, no results and system errors.</p>
+</li>
+<li class="process__step">
+    <span class="process__label">Step 04</span>
+    <h3>Review &amp; handoff</h3>
+    <p>Reviewed the flows for consistency, then handed off all seven flow groups to development.</p>
+</li>`,
+            research: `<p class="case-lede">Mapping the full lifecycle of a workspace showed that most of the design risk sat outside the happy path. Three principles shaped every screen.</p>
 <ol class="insights">
     <li>
         <span class="insights__num">i.</span>
         <div>
-            <h3>Workspace-level general settings</h3>
-            <p>Established a default language selector (English, Spanish, French) with support for localized welcome and goodbye messages. The client contact number was moved from instance-level transfer-out configuration up to the workspace, centralizing elements shared across all instances and reducing per-instance setup overhead.</p>
+            <h3>Show what is missing before it blocks the user.</h3>
+            <p>A workspace isn't ready until every section is configured. "Incomplete" badges on the workspace and on each section show what is left at a glance, so the rule that blocks a snapshot never comes as a surprise.</p>
         </div>
     </li>
     <li>
         <span class="insights__num">ii.</span>
         <div>
-            <h3>Transfer-in configuration</h3>
-            <p>Designed to accept multiple call center phone numbers used for IVR call recognition — allowing the system to correctly identify calls transferred from client call centers and preventing phone numbers from being incorrectly associated with accounts.</p>
+            <h3>Every action has a way back, or a clear warning that it doesn't.</h3>
+            <p>Duplicate makes trying a variation cost nothing. Delete is the one action that cannot be undone, so it is the one that asks for confirmation and names exactly what will be lost.</p>
         </div>
     </li>
     <li>
         <span class="insights__num">iii.</span>
         <div>
-            <h3>Placement decision: workspace vs. instance</h3>
-            <p>A key design question was whether transfer configurations belonged at the workspace or instance level. The deciding factors: workspace snapshots support portable configurations while instance settings are non-portable. Transfer-in and transfer-out configurations were placed at the workspace level to support portability and consistent auditing.</p>
-        </div>
-    </li>
-    <li>
-        <span class="insights__num">iv.</span>
-        <div>
-            <h3>Instance-level maintenance mode</h3>
-            <p>Introduced a maintenance mode toggle at the instance level. When enabled, it disables authentication and payment flows while the IVR is offline and surfaces a biller-specific maintenance message — giving operations teams a controlled, user-facing way to handle planned downtime.</p>
+            <h3>The same problem always gets the same answer.</h3>
+            <p>A duplicate name, a failed request or an empty list can happen in several flows. Each one is handled the same way wherever it appears (inline field errors, page-level banners, illustrated empty states), so users learn the pattern once.</p>
         </div>
     </li>
 </ol>`,
-            solutionBody: `<p class="case-lede">A restructured configuration architecture across three surfaces — workspace settings, transfer configuration, and instance controls — giving administrators a logical, auditable system for managing IVR environments.</p>`,
+            solutionBody: `<p class="case-lede">A list-and-detail workspace manager. The list of workspaces stays in view while their details, edits and actions open beside it, so users never lose their place in a Space.</p>`,
             features: `<div class="features__item">
-    <h3>Workspace general settings</h3>
-    <p>Centralized language defaults, localized messaging, and the client contact number at the workspace level — eliminating repeated configuration across instances and establishing a single source of truth for shared settings.</p>
+    <h3>List and detail side by side</h3>
+    <p>Workspaces expand to show their sections, and the detail panel summarizes each one. Create and Edit open in a side panel, so the context never disappears.</p>
 </div>
 <div class="features__item">
-    <h3>Transfer configuration panel</h3>
-    <p>Designed a dedicated workspace-level panel for transfer-in and transfer-out rules, supporting multiple call center numbers with clear labeling to prevent misassociation and improve routing auditability.</p>
+    <h3>Progress at a glance</h3>
+    <p>"Incomplete" badges show up on the workspace and on each section. Snapshots are only allowed once everything is filled in, and the error explains exactly why when they aren't.</p>
 </div>
 <div class="features__item">
-    <h3>Instance maintenance mode</h3>
-    <p>Added a maintenance toggle at the instance level that gracefully disables payment and authentication flows, surfaces a configurable biller message, and gives operations teams deliberate control over IVR availability.</p>
+    <h3>Safe by default</h3>
+    <p>Workspace and snapshot names must be unique, and delete always asks first. Every action ends with a success banner or a system error the user can recover from.</p>
 </div>`,
-            resultsLede: `<p class="case-lede">The redesigned configuration structure resolved longstanding operational pain points and established a foundation for scalable IVR management within ConfigHQ.</p>`,
-            results: `<div class="results__item"><span class="results__num">4</span><p>Configuration domains restructured with clear workspace vs. instance ownership</p></div>
-<div class="results__item"><span class="results__num">3</span><p>Languages supported with centralized localization at the workspace level</p></div>
-<div class="results__item"><span class="results__num">1</span><p>Unified maintenance mode giving operations full control over instance availability</p></div>`
+            flowsLede: `<p class="case-lede">Six flows, plus the empty state they all start from, cover the full life of a workspace, from an empty Space to a saved snapshot. Each one includes its edge cases and error states.</p>`,
+            flows: `<article class="flow">
+    <div class="flow__media"><img src="assets/config-hq/flow-create.jpg" alt="Create workspace flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">01</span>
+        <h3>Create workspace</h3>
+        <p>From the empty state to a new workspace, with a name, a description and supported languages.</p>
+        <ul class="flow__scenarios"><li>Empty state</li><li>Success</li><li>Name exists</li><li>System error</li></ul>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/config-hq/flow-edit.jpg" alt="Edit workspace flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">02</span>
+        <h3>Edit workspace</h3>
+        <p>Updating details in the same panel used to create them.</p>
+        <ul class="flow__scenarios"><li>Success</li><li>System error</li></ul>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/config-hq/flow-duplicate.jpg" alt="Duplicate workspace flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">03</span>
+        <h3>Duplicate workspace</h3>
+        <p>Copying a workspace to try a variation without touching the original.</p>
+        <ul class="flow__scenarios"><li>Success</li><li>Name exists</li><li>System error</li></ul>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/config-hq/flow-delete.jpg" alt="Delete workspace flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">04</span>
+        <h3>Delete workspace</h3>
+        <p>A confirmed, clearly worded removal of a workspace.</p>
+        <ul class="flow__scenarios"><li>Workspaces remain</li><li>None remain</li><li>System error</li></ul>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/config-hq/flow-snapshot.jpg" alt="Generate snapshot flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">05</span>
+        <h3>Generate snapshot</h3>
+        <p>Saving a finished workspace as a fixed, named version.</p>
+        <ul class="flow__scenarios"><li>Success</li><li>Name exists</li><li>Incomplete workspace</li><li>System error</li></ul>
+    </div>
+</article>
+<article class="flow">
+    <div class="flow__media"><img src="assets/config-hq/flow-search.jpg" alt="Search and filter flow" loading="lazy"></div>
+    <div class="flow__body">
+        <span class="flow__num">06</span>
+        <h3>Search &amp; filter</h3>
+        <p>Finding a workspace by name or by last-updated date.</p>
+        <ul class="flow__scenarios"><li>Results</li><li>No results</li><li>Date filter</li></ul>
+    </div>
+</article>`,
+            systemTitle: 'Deep Dive',
+            systemLede: `<p class="case-lede">Every flow was designed through to its edge cases before it was marked done by design. Pick a flow to see its key screens.</p>`,
+            system: renderDive(chqDive),
+            resultsLede: `<p class="case-lede">The complete workspace lifecycle was designed, reviewed and handed off to development as one consistent system.</p>`,
+            results: `<div class="results__item"><span class="results__num">7</span><p>Flow groups covering the full life of a workspace, from an empty Space to a saved snapshot</p></div>
+<div class="results__item"><span class="results__num">58</span><p>Screens designed across happy paths, edge cases and error states</p></div>
+<div class="results__item"><span class="results__num">1</span><p>Shared set of patterns for errors, confirmations and empty states, reused in every flow</p></div>`
         },
         rei: {
             eyebrow: 'UX/UI Design — 2025',
@@ -623,7 +742,7 @@
             team: 'Solo project',
             platform: 'Android (Google Play) &amp; Web (PWA)',
             next: 'cookfresh', // was 'mirror' — hidden for now
-            nextTitle: 'Config HQ — IVR Instances',
+            nextTitle: 'Config HQ — Workspaces',
             problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
 <p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
             research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>
