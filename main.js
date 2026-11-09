@@ -482,8 +482,8 @@
             client: 'KUBRA',
             team: 'UI Designer, UX Researcher, PM, Developer',
             platform: 'Desktop Web Software',
-            next: 'rei',
-            nextTitle: 'Storm Center 5 — Wind Icon',
+            next: 'khqauth', // rei, upup and mirror are hidden for now — restore 'rei' when they return
+            nextTitle: 'KHQ Authentication',
             problem: `<p class="case-lede">IVR+ configuration within ConfigHQ had grown fragmented — settings, transfer rules, and instance controls were scattered across the system with no clear ownership or hierarchy.</p>
 <p>Four specific gaps were driving the problem:</p>
 <ol class="insights" style="list-style:none;padding:0;margin:var(--s-4) 0 0;display:flex;flex-direction:column;gap:var(--s-3);">
@@ -622,8 +622,8 @@
             client: 'Ironic Ink Designs LLC',
             team: 'Solo project',
             platform: 'Android (Google Play) &amp; Web (PWA)',
-            next: 'mirror',
-            nextTitle: 'KHQ Side Panel Update',
+            next: 'cookfresh', // was 'mirror' — hidden for now
+            nextTitle: 'Config HQ — IVR Instances',
             problem: `<p class="case-lede">Magic: The Gathering players managing large token armies have no purpose-built tool — they rely on dice that roll away, sticky notes that get lost, and generic notes apps that can't model how tokens actually work.</p>
 <p>The core problem isn't just counting — it's tracking the <strong>lifecycle</strong> of every token. Creatures that enter play can't attack or tap until the following turn (summoning sickness). Cards with haste bypass this rule entirely. Board wipes destroy everything at once. Commanders like Krenko generate exponentially growing token counts with a single tap. No existing app modeled any of this — players were left doing the math in their heads mid-game, mid-combat, under pressure.</p>`,
             research: `<p class="case-lede">Playtesting sessions and tester feedback across multiple builds surfaced three design problems that kept reshaping the product.</p>

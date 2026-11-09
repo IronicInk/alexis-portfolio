@@ -26,7 +26,7 @@ The site is a single HTML file acting as a two-page SPA. Navigation works by tog
 
 **Adding a new project** requires two steps:
 1. Add an entry to the `projects` object in `main.js` with the correct `next`/`nextTitle` chain.
-2. Add a `<button class="card">` in `index.html` inside the appropriate `#cards-featured` or `#cards-additional` container, with `data-nav="project"` and `data-project="your-key"`.
+2. Add a `<button class="card">` in `index.html` inside `#cards-featured` (the Additional work section was removed — all projects live in one grid), with `data-nav="project"` and `data-project="your-key"`.
 
 **Home sections** (in order): hero (`#top`, with dot-field `<canvas>`), Work (`#work`), Approach/principles (`#approach`), About (`#about`), Contact (`#contact`, inverted panel). Nav links scrollspy against these ids.
 
@@ -57,20 +57,19 @@ Projects appear in this order in the grid:
 | `eatxplore` | ASU Events Page | `assets/asu-events/cover.jpg` (also research, design-system and mobile shots in that folder) |
 | `norden` | ASU Rankings Page | `assets/asu-rankings/cover.jpg` (plus component screenshots in that folder) |
 | `mythicaltracker` | Mythical Tracker | `https://ironicink.github.io/Goblin-Tracker/screenshot1.jpg` |
-| `mirror` | KHQ Side Panel Update | Unsplash placeholder |
-
-### Additional work (`#cards-additional`)
-
-| Key | Title | Card image |
-|-----|-------|------------|
+| `mirror` | KHQ Side Panel Update (hidden) | Unsplash placeholder |
 | `cookfresh` | Config HQ — IVR Instances | Unsplash placeholder |
-| `rei` | Storm Center 5 — Wind Icon | Unsplash placeholder |
-| `upup` | MyHQ+ & EZ-PAY+ — Color Label Behavior | Unsplash placeholder |
+| `rei` | Storm Center 5 — Wind Icon (hidden) | Unsplash placeholder |
+| `upup` | MyHQ+ & EZ-PAY+ — Color Label Behavior (hidden) | Unsplash placeholder |
+
+The `Featured` count in the `.work__subhead` is hardcoded — update it when cards are shown or hidden.
 
 ### Next/prev chain (must stay consistent)
 ```
 khqauth → eatxplore → norden → mythicaltracker → mirror → cookfresh → rei → upup → khqauth
 ```
+**Currently hidden:** `mirror`, `rei` and `upup` cards carry the `hidden` attribute and are skipped in the live chain, which is `khqauth → eatxplore → norden → mythicaltracker → cookfresh → khqauth`. To bring them back, remove `hidden` from their cards and restore `mythicaltracker.next = 'mirror'` and `cookfresh.next = 'rei'`.
+
 If you add or remove a project, update BOTH the outgoing project's `next`/`nextTitle` AND the incoming project's `next`/`nextTitle` to keep the loop intact.
 
 ---

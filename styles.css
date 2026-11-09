@@ -692,6 +692,8 @@ body.is-inspecting [data-spec]::after {
 .card__desc { font-size: 15px; line-height: 1.55; color: var(--color-ink-soft); margin: 0; max-width: 56ch; }
 .card__arrow { display: none; }
 
+.card[hidden] { display: none !important; } /* beats the view-mode display rules */
+
 /* ============== CARD MODE ============== */
 .cards[data-view="card"] {
     display: grid;
